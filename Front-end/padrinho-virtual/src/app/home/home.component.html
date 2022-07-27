@@ -1,0 +1,19 @@
+<div>
+  <mat-toolbar>
+      <span>Padrinho Virtual</span>
+      <span class="button-to-far-left"></span>              
+      <!--button mat-button (click)="onClickHome()">Voltar</button-->
+      <a mat-button href=" ">Sair</a>
+  </mat-toolbar>
+</div>
+
+<div fxLayout = "column" fxLayoutAlign="center center" fxLayoutGap="25px" class="padding">  
+  <div *ngIf="hasProject == 0" >
+    <button mat-raised-button class="button-size" color="black" (click)="onClickNew()">Criar casamento</button>
+  </div>
+  <div *ngIf="hasProject == 1" fxLayout = "column" fxLayoutAlign="center center" fxLayoutGap="25px">
+    <button mat-raised-button class="button-size" color="black" (click)="onClickEdit()">Editar casamento</button>
+    <button mat-raised-button class="button-size" color="black" (click)="onClickEnd('0ms', '0ms')">Concluir casamento</button>
+    <button mat-raised-button class="button-size" color="black" (click)="onClickeDelete('0ms', '0ms')">Deletar casamento</button>
+  </div>  
+</div>

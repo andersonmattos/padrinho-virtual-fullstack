@@ -1,0 +1,80 @@
+<div>
+  <mat-toolbar>
+      <span>Padrinho Virtual</span>
+      <span class="button-to-far-left"></span>              
+      <!--button mat-button (click)="onClickHome()">Voltar</button-->
+      <a mat-button href=" ">Sair</a>
+  </mat-toolbar>
+</div>
+
+<div fxLayout = "row" fxLayoutAlign = "space-around">  
+    <div class="div-size">
+      <button mat-icon-button (click)="onClickHome()" >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <!--ngIf para ocultar mostrar o botão de inserir convidados apenas na aba definida -->
+      <div *ngIf="tabIndex == 1" >
+            <article fxLayout = "row" fxLayoutAlign = "end end">
+                <button mat-button (click)="addRow()">Adicionar convidado</button>
+                <!--a mat-button href="/convidado">Adicionar convidado</a-->
+            </article>
+      </div>
+        <mat-tab-group mat-align-tabs="start" (selectedTabChange)="tabChanged($event)">
+            <mat-tab label="Noivos">
+                <form [formGroup]="formPartner1" (ngSubmit)="saveChanges()" >
+                    <p>
+                        <mat-form-field class="field-width" appearance="fill">
+                            <mat-label>Nome do noivo(a)</mat-label>
+                            <input formControlName = "noivo1" matInput value = "{{noivo1}}" (change)="onChangePartner1()">
+                        </mat-form-field>
+                    </p>
+                </form>
+                <form [formGroup]="formPartner2" (ngSubmit)="saveChanges()">
+                  <p>
+                        <mat-form-field class="field-width" appearance="fill">
+                            <mat-label>Nome do noivo(a)</mat-label>
+                            <input formControlName = "noivo2" matInput value = "{{noivo2}}" (change)="onChangePartner2()">
+                        </mat-form-field>
+
+                        <button mat-raised-button>Salvar</button>
+                    </p>
+                </form>
+            </mat-tab>            
+            <mat-tab label="Convidados">                
+                <table mat-table [dataSource]="dataSource" class="table">
+                    <ng-container [matColumnDef]="col.key" *ngFor="let col of columnsSchema">
+                      <th mat-header-cell *matHeaderCellDef>
+                        {{ col.label }}
+                      </th>                      
+                      <td mat-cell *matCellDef="let element">
+                        <div [ngSwitch]="col.type" *ngIf="!element.isEdit">
+                          <div class="btn-edit" *ngSwitchCase="'isEdit'">
+                            <button mat-button (click)="element.isEdit = !element.isEdit">
+                              Edit
+                            </button>
+                            <button mat-button (click)="removeRow(element.id)">
+                              Delete
+                            </button>
+                          </div>
+                          <span *ngSwitchDefault>
+                            {{ element[col.key] }}
+                          </span>
+                        </div>
+                        <div [ngSwitch]="col.type" *ngIf="element.isEdit">
+                          <div class="btn-edit" *ngSwitchCase="'isEdit'">
+                            <button mat-button (click)="onEditConvidado(element.id, element.nome, element.quantidade)">Atualizar</button>
+                            <button mat-button (click)="element.isEdit = !element.isEdit">Finalizar Edição</button>                            
+                          </div>
+                          <mat-form-field *ngSwitchDefault>
+                            <input [type]="col.type" matInput [(ngModel)]="element[col.key]" />
+                          </mat-form-field>                        
+                        </div>
+                      </td>                      
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                  </table>
+            </mat-tab>                        
+        </mat-tab-group>
+    </div>  
+</div>
