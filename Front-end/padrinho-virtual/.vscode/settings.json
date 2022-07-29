@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/f10f225b-2b28-44f4-af43-b57e12f2d86a/microsoft.web/sites/subscriptions/f10f225b-2b28-44f4-af43-b57e12f2d86a/resourceGroups/PadrinhoVirtual20220724203623ResourceGroup/providers/Microsoft.Web/sites/PadrinhoVirtual",
+    "appService.deploySubpath": "dist\\padrinho-virtual"
+}
