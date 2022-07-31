@@ -20,7 +20,8 @@ export class HomeComponent implements OnInit {
   userId: string = '';
   rootPath: string = '/casamento/';
   //userPath: string  = 'http://localhost:3000/user/'
-  userPath: string  = 'https://localhost:44362/api/Usuarios/'
+  //userPath: string  = 'https://localhost:44362/api/Usuarios/'
+  userPath: string  = 'https://padrinhovirtual.azurewebsites.net/api/Usuarios/'
   casamentoPath: string  = 'http://localhost:3000/casamento/'
   users: UsersInterface[] = [];
   hasProject: any = 0;

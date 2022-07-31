@@ -16,7 +16,8 @@ export class PrimeiroCadastroComponent implements OnInit {
   users: UsersInterface[] = [];
   formCadastro: FormGroup = new FormGroup({});
   //path: string = "http://localhost:3000/user";  
-  path: string = "https://localhost:44362/api/Usuarios"
+  //path: string = "https://localhost:44362/api/Usuarios"
+  path: string = "https://padrinhovirtual.azurewebsites.net/api/Usuarios"
 
   constructor(
     private formBuilder: FormBuilder,

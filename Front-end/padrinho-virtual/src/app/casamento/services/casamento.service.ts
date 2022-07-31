@@ -12,7 +12,9 @@ export class CasamentoService {
   private readonly inviteePath ='http://localhost:3000/convidados?idCasamento=';
   
   //private readonly userPath ='http://localhost:3000/user/';
-  private readonly userPath = 'https://localhost:44362/api/Usuarios/';
+  //private readonly userPath = 'https://localhost:44362/api/Usuarios/';
+  private readonly userPath = 'https://padrinhovirtual.azurewebsites.net/api/Usuarios';
+
 
   constructor(private http: HttpClient) { }
 
