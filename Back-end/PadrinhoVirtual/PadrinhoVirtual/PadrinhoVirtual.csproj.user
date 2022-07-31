@@ -10,6 +10,6 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>PadrinhoVirtual.Model.UsuarioContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
-    <NameOfLastUsedPublishProfile>D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Back-end\PadrinhoVirtual\PadrinhoVirtual\Properties\PublishProfiles\PadrinhoVirtual - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PadrinhoVirtual\PadrinhoVirtual\Properties\PublishProfiles\padrinhovirtual - Web Deploy2.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   users: UsersInterface[] = [];
   formLogin: FormGroup = new FormGroup({});
   //path: string = "http://localhost:3000/user";
-  path: string = "https://localhost:44362/api/Usuarios"
+  //path: string = "https://localhost:44362/api/Usuarios"
+  path: string = "https://https://padrinhovirtual.azurewebsites.net/api/Usuarios"
   userId: string = '';
   
   
