@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="IIS Web Application Name" description="" value="padrinhovirtual" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Downloads\\Cursos\\Pós\\16\ -\ Projeto\ Integrador\\Padrinho\ Virtual\\padrinho-virtual-fullstack\\Back-end\\PadrinhoVirtual\\PadrinhoVirtual\\obj\\Release\\net5\.0\\PubTmp\\Out\\$" />
-  </parameter>
-</parameters>

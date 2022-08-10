@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Esse arquivo é usado pelo processo de publicação/pacote do seu projeto Web. É possível personalizar o comportamento deste processo
+ao editar este arquivo MSBuild. Para saber mais sobre isso, visite https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA8iGLaisGVkO3pERTdyZN+AAAAAACAAAAAAAQZgAAAAEAACAAAACAdMzJvqPPdQt85wVyvf6GBiO5iHgKPE0LIkiqKTk8KwAAAAAOgAAAAAIAACAAAAD+8AqGFc2+qCHkw9WK9UT67Sk9LZf7fosgJ9P/GF8QWoAAAAC/jkjnSmx28eBv3FLfap4qBrhxGvhBUzMltemh0AYkt0P3gBNVoRjwRSmX0TPf4kpNHTf6Oxj6BJfWs+ApZbr/ax88+uTeagtsB6LtVhRAtQ/mrZC4cEKPOrclqg+v1gjYkGY/ujgXTSSB4dwNNIGWN2JGWCvXDRUMIXgEIvE+/UAAAACXn9GVyhh66yV90cS8xR5Wbidc60gMnS//NVW07WC2cbxamwhQ4INIpePZJmuuJ91W4q1IpW5FopR7CxXGBOW6</EncryptedPassword>
+    <History>True|2022-08-10T12:05:22.4340616Z;True|2022-08-09T23:48:05.6501495-03:00;True|2022-08-09T23:46:22.9216110-03:00;True|2022-08-09T23:43:53.5897845-03:00;True|2022-08-09T23:43:02.9463410-03:00;True|2022-08-09T23:03:25.6642734-03:00;True|2022-08-09T22:29:22.9177423-03:00;True|2022-08-09T22:01:53.2658375-03:00;False|2022-08-09T21:59:23.4721733-03:00;True|2022-08-09T21:57:34.4060315-03:00;True|2022-08-09T21:45:06.4438697-03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="PVWApi.Models.UsuarioContext">
+      <Value>Data Source=tcp:pdrvtl.database.windows.net,1433%3bInitial Catalog=PDRVTL%3bUser Id=anderson.mattos%40pdrvtl%3bPassword=And!2022</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

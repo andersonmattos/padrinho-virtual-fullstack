@@ -8,8 +8,8 @@ import { UsersInterface } from 'src/app/login/interface/users';
 export class PrimeiroCadastroService {
 
   //private readonly path = 'http://localhost:3000/user';
-  //private readonly path = 'https://localhost:44362/api/Usuarios';
-  private readonly path = 'https://padrinhovirtual.azurewebsites.net/api/Usuarios';
+  //private readonly path = 'https://localhost:44388/api/Usuarios';
+  private readonly path = 'https://padrinhovirtual.azurewebsites.net/api/Usuario';
 
   constructor(private http: HttpClient) { }
 
