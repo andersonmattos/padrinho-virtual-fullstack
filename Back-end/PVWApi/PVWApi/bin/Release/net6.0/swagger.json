@@ -156,6 +156,12 @@
         },
         "senha": {
           "type": "string"
+        },
+        "temCasamento": {
+          "type": "string"
+        },
+        "casamentoId": {
+          "type": "string"
         }
       }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d1gT+SUTSyqbykmodrfbXxBl7vGy0KCznSUmBawtjTsJbGn+KkEs4I2xKbw6CHIT/jOTolbhQ0UWh+qqaHvyrA==",
+  "dgSpecHash": "3E11NKF9Q/Jo8RTXhyAUUPQJprLEx9U8xlLNhFp9AUzAayBlgfoqoAJxn0JzMM8dSCZ3MXtFrG/PBfvie0+g8Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\p-leo\\Desktop\\pv_wapi\\PVWApi\\PVWApi\\PVWApi.csproj",
+  "projectFilePath": "D:\\Downloads\\Cursos\\Pós\\16 - Projeto Integrador\\Padrinho Virtual\\padrinho-virtual-fullstack\\Back-end\\PVWApi\\PVWApi\\PVWApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\p-leo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\p-leo\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
