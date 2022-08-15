@@ -3,5 +3,6 @@ export interface UsersInterface {
     email: string,
     nome: string; 
     senha:string; 
-    temCasamento: number    
+    TemCasamento: number;
+    CasamentoId: number        
 }

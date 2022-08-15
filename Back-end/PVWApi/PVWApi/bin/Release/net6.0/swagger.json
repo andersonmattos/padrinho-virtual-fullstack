@@ -158,10 +158,12 @@
           "type": "string"
         },
         "temCasamento": {
-          "type": "string"
+          "format": "int32",
+          "type": "integer"
         },
         "casamentoId": {
-          "type": "string"
+          "format": "int32",
+          "type": "integer"
         }
       }
     }

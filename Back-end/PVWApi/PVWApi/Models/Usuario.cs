@@ -17,10 +17,10 @@ namespace PVWApi.Models
         [Column(TypeName = "varchar(10)")]
         public string Senha { get; set; }
 
-        [Column(TypeName = "varchar(1)")]
-        public string TemCasamento { get; set; }
+        [Column(TypeName = "int")]
+        public int TemCasamento { get; set; }
 
-        [Column(TypeName = "varchar(1)")]
-        public string CasamentoId { get; set; }
+        [Column(TypeName = "int")]
+        public int CasamentoId { get; set; }
     }
 }

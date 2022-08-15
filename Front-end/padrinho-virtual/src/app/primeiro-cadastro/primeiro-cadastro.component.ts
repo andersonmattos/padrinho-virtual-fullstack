@@ -18,6 +18,7 @@ export class PrimeiroCadastroComponent implements OnInit {
   //path: string = "http://localhost:3000/user";  
   //path: string = "https://localhost:44388/api/Usuarios"
   path: string = "https://padrinhovirtual.azurewebsites.net/api/Usuario"
+  //path: string = "http://localhost:5080/api/Usuario"
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,10 +32,12 @@ export class PrimeiroCadastroComponent implements OnInit {
       email: [null],
       nome: [null],
       senha: [null],
-      temCasamento: 0
+      temCasamento: 0,
+      casamentoId: 0
     });
    
-    this.service.getUsers().subscribe(usr => this.users = usr);    
+    this.service.getUsers().subscribe(usr => this.users = usr); 
+    console.log(this.formCadastro.value)   
   }
 
   //Adiciona usuário ao arquivo json
@@ -42,6 +45,7 @@ export class PrimeiroCadastroComponent implements OnInit {
     
     this.http.post<any>(this.path,this.formCadastro.value).subscribe(
       res => {
+        
         
         alert("Cadastro criado com sucesso!");
         this.formCadastro.reset();
