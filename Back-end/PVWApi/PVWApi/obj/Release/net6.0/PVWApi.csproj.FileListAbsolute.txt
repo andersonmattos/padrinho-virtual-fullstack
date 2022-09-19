@@ -272,7 +272,6 @@ D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtu
 D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\MessagePack.Annotations.dll
 D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.Build.Locator.dll
 D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
 D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.CodeAnalysis.dll
 D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -522,3 +521,6 @@ D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtu
 D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\obj\Release\net6.0\PVWApi.pdb
 D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\obj\Release\net6.0\PVWApi.genruntimeconfig.cache
 D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\obj\Release\net6.0\ref\PVWApi.dll
+D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.Build.dll
+D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.Build.Framework.dll
+D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.NET.StringTools.dll
