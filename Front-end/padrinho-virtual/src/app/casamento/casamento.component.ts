@@ -104,7 +104,7 @@ export class CasamentoComponent implements OnInit {
     //debugger
     this.InviteeService.deleteConvidadoById(id.toString()).subscribe();
     alert('Deletado com sucesso');    
-    this.dataSource = this.dataSource.filter((u:any) => u.id !== id);
+    this.dataSource = this.dataSource.filter((u:any) => u.convidadoId !== id);
   }
 
   //Método para identificar quando a aba Convidados está selecionada
