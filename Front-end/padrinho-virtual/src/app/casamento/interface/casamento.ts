@@ -1,7 +1,11 @@
 export interface CasamentoInterface {
     id: number,
-    idUser: number,
+    UsuarioLoginId: number,
     noivo1: string,
     noivo2: string,
-    status: number
+    status: number,
+    FestaId: number,
+    CerimoniaId: number,
+    DecoracaoId: number,
+    ConvidadoId: number
 }

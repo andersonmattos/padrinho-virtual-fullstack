@@ -5,6 +5,1129 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Banda": {
+      "get": {
+        "tags": [
+          "Banda"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Banda"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Banda"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Banda"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Banda"
+            }
+          }
+        }
+      }
+    },
+    "/api/Banda/{id}": {
+      "get": {
+        "tags": [
+          "Banda"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Banda"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Banda"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Banda"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Banda"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Buffet": {
+      "get": {
+        "tags": [
+          "Buffet"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Buffet"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Buffet"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Buffet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Buffet"
+            }
+          }
+        }
+      }
+    },
+    "/api/Buffet/{id}": {
+      "get": {
+        "tags": [
+          "Buffet"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Buffet"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Buffet"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Buffet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Buffet"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Casamento": {
+      "get": {
+        "tags": [
+          "Casamento"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Casamento"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Casamento"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Casamento"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Casamento"
+            }
+          }
+        }
+      }
+    },
+    "/api/Casamento/{id}": {
+      "get": {
+        "tags": [
+          "Casamento"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Casamento"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Casamento"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Casamento"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Casamento"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Celebrante": {
+      "get": {
+        "tags": [
+          "Celebrante"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Celebrante"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Celebrante"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Celebrante"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Celebrante"
+            }
+          }
+        }
+      }
+    },
+    "/api/Celebrante/{id}": {
+      "get": {
+        "tags": [
+          "Celebrante"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Celebrante"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Celebrante"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Celebrante"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Celebrante"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Cerimonia": {
+      "get": {
+        "tags": [
+          "Cerimonia"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Cerimonia"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Cerimonia"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Cerimonia"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Cerimonia"
+            }
+          }
+        }
+      }
+    },
+    "/api/Cerimonia/{id}": {
+      "get": {
+        "tags": [
+          "Cerimonia"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Cerimonia"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Cerimonia"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Cerimonia"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Cerimonia"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Convidado": {
+      "get": {
+        "tags": [
+          "Convidado"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Convidado"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Convidado"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Convidado"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Convidado"
+            }
+          }
+        }
+      }
+    },
+    "/api/Convidado/{id}": {
+      "get": {
+        "tags": [
+          "Convidado"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Convidado"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Convidado"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Convidado"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Convidado"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Convidado"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Operation"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Decoracao": {
+      "get": {
+        "tags": [
+          "Decoracao"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Decoracao"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Decoracao"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Decoracao"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Decoracao"
+            }
+          }
+        }
+      }
+    },
+    "/api/Decoracao/{id}": {
+      "get": {
+        "tags": [
+          "Decoracao"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Decoracao"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Decoracao"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Decoracao"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Decoracao"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Festa": {
+      "get": {
+        "tags": [
+          "Festa"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Festa"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Festa"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Festa"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Festa"
+            }
+          }
+        }
+      }
+    },
+    "/api/Festa/{id}": {
+      "get": {
+        "tags": [
+          "Festa"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Festa"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Festa"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Festa"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Festa"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Usuario": {
       "get": {
         "tags": [
@@ -32,6 +1155,7 @@
           "Usuario"
         ],
         "consumes": [
+          "application/json-patch+json",
           "application/json",
           "text/json",
           "application/*+json"
@@ -93,6 +1217,7 @@
           "Usuario"
         ],
         "consumes": [
+          "application/json-patch+json",
           "application/json",
           "text/json",
           "application/*+json"
@@ -141,6 +1266,289 @@
     }
   },
   "definitions": {
+    "Banda": {
+      "type": "object",
+      "properties": {
+        "bandaId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "numeroMusicas": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "numeroIntegrantes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "horasContratadas": {
+          "format": "date-span",
+          "type": "string"
+        },
+        "valor": {
+          "format": "double",
+          "type": "number"
+        },
+        "festa": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Festa"
+          }
+        }
+      }
+    },
+    "Buffet": {
+      "type": "object",
+      "properties": {
+        "buffetId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "horasContratadas": {
+          "format": "date-span",
+          "type": "string"
+        },
+        "valor": {
+          "format": "double",
+          "type": "number"
+        },
+        "comidas": {
+          "type": "string"
+        },
+        "festa": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Festa"
+          }
+        }
+      }
+    },
+    "Casamento": {
+      "type": "object",
+      "properties": {
+        "casamentoId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nomeParceiroA": {
+          "type": "string"
+        },
+        "nomeParceiroB": {
+          "type": "string"
+        },
+        "status": {
+          "type": "boolean"
+        },
+        "data": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "usuarioId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "festaId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "decoracaoId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "usuario": {
+          "$ref": "#/definitions/Usuario"
+        },
+        "festa": {
+          "$ref": "#/definitions/Festa"
+        },
+        "cerimonia": {
+          "$ref": "#/definitions/Cerimonia"
+        },
+        "decoracao": {
+          "$ref": "#/definitions/Decoracao"
+        },
+        "convidado": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Convidado"
+          }
+        }
+      }
+    },
+    "Celebrante": {
+      "type": "object",
+      "properties": {
+        "celebranteId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "horasContratadas": {
+          "format": "date-span",
+          "type": "string"
+        },
+        "valor": {
+          "format": "double",
+          "type": "number"
+        },
+        "cerimonia": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Cerimonia"
+          }
+        }
+      }
+    },
+    "Cerimonia": {
+      "type": "object",
+      "properties": {
+        "cerimoniaId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "civil": {
+          "type": "boolean"
+        },
+        "religiosa": {
+          "type": "boolean"
+        },
+        "local": {
+          "type": "string"
+        },
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "celebranteId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "celebrante": {
+          "$ref": "#/definitions/Celebrante"
+        },
+        "casamento": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Casamento"
+          }
+        }
+      }
+    },
+    "Convidado": {
+      "type": "object",
+      "properties": {
+        "convidadoId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "quantidadeConvidado": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "casamentoId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "casamento": {
+          "$ref": "#/definitions/Casamento"
+        }
+      }
+    },
+    "Decoracao": {
+      "type": "object",
+      "properties": {
+        "decoracaoId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "item": {
+          "type": "string"
+        },
+        "valor": {
+          "format": "double",
+          "type": "number"
+        },
+        "casamento": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Casamento"
+          }
+        }
+      }
+    },
+    "Festa": {
+      "type": "object",
+      "properties": {
+        "festaId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "nomeLocal": {
+          "type": "string"
+        },
+        "capacidade": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "horasContratadas": {
+          "format": "date-span",
+          "type": "string"
+        },
+        "valor": {
+          "format": "double",
+          "type": "number"
+        },
+        "buffetId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "bandaId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "buffet": {
+          "$ref": "#/definitions/Buffet"
+        },
+        "banda": {
+          "$ref": "#/definitions/Banda"
+        },
+        "casamento": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Casamento"
+          }
+        }
+      }
+    },
+    "Operation": {
+      "type": "object",
+      "properties": {
+        "value": { },
+        "path": {
+          "type": "string"
+        },
+        "op": {
+          "type": "string"
+        },
+        "from": {
+          "type": "string"
+        }
+      }
+    },
     "Usuario": {
       "type": "object",
       "properties": {
@@ -164,6 +1572,12 @@
         "casamentoId": {
           "format": "int32",
           "type": "integer"
+        },
+        "casamento": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Casamento"
+          }
         }
       }
     }

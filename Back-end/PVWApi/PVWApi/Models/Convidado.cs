@@ -15,6 +15,10 @@ namespace PVWApi.Models
         [Column(TypeName = "int")]
         public int QuantidadeConvidado { get; set; }
 
-        public virtual ICollection<Casamento> Casamento { get; set; }
+        [Column(TypeName = "int")]
+        public int CasamentoId { get; set; }
+                
+        [ForeignKey("CasamentoId")]
+        public virtual Casamento? Casamento { get; set; }
     }
 }

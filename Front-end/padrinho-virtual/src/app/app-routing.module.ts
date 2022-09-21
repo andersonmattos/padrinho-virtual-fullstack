@@ -10,8 +10,8 @@ import { ConvidadosComponent } from './convidados/convidados.component';
 const routes: Routes = [
   { path:'', component: LoginComponent},
   { path:'primeiro-cadastro', component: PrimeiroCadastroComponent},
-  { path:'home/:userId', component: HomeComponent},
-  { path:'casamento/:userId', component: CasamentoComponent},
+  { path:'home/:userId', component: HomeComponent},  
+  { path:'Casamento/:userId', component: CasamentoComponent},
   //{ path:'convidado?idCasamento=:idCasamento&:id', component: ConvidadosComponent},
   { path:'convidado', component: ConvidadosComponent},
   //{ path:'convidado/:inviteeId', component: ConvidadosComponent},

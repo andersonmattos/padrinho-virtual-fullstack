@@ -20,7 +20,8 @@ export class ConvidadosComponent implements OnInit {
   hadChangeQuantidade: boolean = false;
   convidadoId: string ='';
   casamentoId: string ='';
-  inviteeAddPath: string = 'http://localhost:3000/convidados'
+  //inviteeAddPath: string = 'http://localhost:3000/convidados'
+  inviteeAddPath: string = 'https://padrinhovirtual.azurewebsites.net/api/Convidado/'
 
   constructor(
     private formBuilder: FormBuilder
@@ -28,10 +29,11 @@ export class ConvidadosComponent implements OnInit {
     , private router: ActivatedRoute
     , private http: HttpClient
     ) {
-    this.convidadoId = this.router.snapshot.params['inviteeId']    
+    this.convidadoId = this.router.snapshot.queryParams['idCasamento']    
    }
 
   ngOnInit(): void {
+    console.log('this.convidadoId')    
     console.log(this.convidadoId)
 
     this.formConvidadosNome = this.formBuilder.group({      
@@ -72,13 +74,19 @@ export class ConvidadosComponent implements OnInit {
       this.formConvidadosNew = this.formBuilder.group({
         idCasamento: this.casamentoId,
         nome: this.formConvidadosNome.get('nome'),
-        quantidade: this.formConvidadosQuantidade.get('quantidade')
+        quantidadeConvidado: this.formConvidadosQuantidade.get('quantidade')
       })
 
-      console.log(this.formConvidadosNew.value)
-      this.http.post<any>(this.inviteeAddPath,this.formConvidadosNew.value).subscribe(
+      console.log(this.formConvidadosNew.value)    
+      this.http.post<any>(this.inviteeAddPath,
+        {
+          nome: this.formConvidadosNew.controls['nome'].value,
+          quantidadeConvidado: this.formConvidadosNew.controls['quantidadeConvidado'].value,
+          casamentoId: this.formConvidadosNew.controls['idCasamento'].value
+        }
+      ).subscribe(
         res => {
-          this.route.navigate(['casamento/' + this.casamentoId])
+          this.route.navigate(['Casamento/' + this.casamentoId])
           this.formConvidadosNew.reset
         }
       )
@@ -96,7 +104,7 @@ export class ConvidadosComponent implements OnInit {
   }
 
   onClickCancelButton() {    
-    this.route.navigate(['casamento/'+ this.casamentoId])
+    this.route.navigate(['Casamento/'+ this.casamentoId])
   }
 
 }

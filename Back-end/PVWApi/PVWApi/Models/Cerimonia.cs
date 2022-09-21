@@ -6,10 +6,7 @@ namespace PVWApi.Models
     public class Cerimonia
     {
         [Key]
-        public int CerimoniaId { get; set; }
-
-        [ForeignKey("CelebranteId")]
-        public int CelebranteId { get; set; }
+        public int CerimoniaId { get; set; }        
 
         [Column(TypeName = "bit")]
         public Boolean Civil { get; set; }
@@ -22,6 +19,9 @@ namespace PVWApi.Models
 
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }
+
+        [Column(TypeName = "int")]
+        public int CelebranteId { get; set; }
 
         public virtual Celebrante Celebrante { get; set; }
 

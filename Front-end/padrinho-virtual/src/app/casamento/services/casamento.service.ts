@@ -8,8 +8,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CasamentoService {
 
-  private readonly path ='http://localhost:3000/casamento/';
-  private readonly inviteePath ='http://localhost:3000/convidados?idCasamento=';
+  //private readonly path ='http://localhost:3000/casamento/';
+  private readonly path ='https://padrinhovirtual.azurewebsites.net/api/Casamento/';
+  //private readonly inviteePath ='http://localhost:3000/convidados?idCasamento=';
+  private readonly inviteePath ='https://padrinhovirtual.azurewebsites.net/api/Convidado?idCasamento=';
   
   //private readonly userPath ='http://localhost:3000/user/';
   private readonly userPath = 'https://localhost:44388/api/Usuarios/';
@@ -39,6 +41,7 @@ export class CasamentoService {
   }
 
   getInviteesByCasamentoId(casamentoId:string) {    
+    console.log('this.inviteePath+casamentoId',this.inviteePath+casamentoId)
     return this.http.get<any>(this.inviteePath+casamentoId)
   }
 

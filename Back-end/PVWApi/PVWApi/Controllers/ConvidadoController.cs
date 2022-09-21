@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using PVWApi.Models;
 
@@ -102,6 +104,36 @@ namespace PVWApi.Controllers
         private bool ConvidadoExists(int id)
         {
             return _context.Convidado.Any(e => e.ConvidadoId == id);
+        }
+
+        [HttpPatch("{id}")]
+        public async Task<ActionResult> Patch(int id, [FromBody] JsonPatchDocument<Convidado> patchConvidado)
+        {
+            if (patchConvidado != null)
+            {
+                var convidado = await _context.Convidado.FirstOrDefaultAsync(cat => cat.ConvidadoId == id);
+                patchConvidado.ApplyTo(convidado, ModelState);
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                return new ObjectResult(convidado);
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+            
+            /*var convidado = await _context.Convidado.FirstOrDefaultAsync(conv => conv.ConvidadoId == id);
+
+            if (convidado == null)
+                return NotFound();
+
+            patchConvidado.ApplyTo(convidado);
+            await _context.SaveChangesAsync();
+
+            return NoContent();*/
         }
     }
 }

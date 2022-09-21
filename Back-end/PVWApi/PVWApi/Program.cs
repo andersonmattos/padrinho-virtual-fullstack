@@ -17,7 +17,8 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddDbContext<UsuarioContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
+options
+    .UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
 
 builder.Services.AddDbContext<BandaContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
@@ -45,10 +46,13 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection"))
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+//builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen().AddSwaggerGenNewtonsoftSupport();
+
+
 
 var app = builder.Build();
 

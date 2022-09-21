@@ -20,7 +20,13 @@ namespace PVWApi.Models
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal Valor { get; set; }
-                
+
+        [Column(TypeName = "int")]
+        public int BuffetId { get; set; }
+
+        [Column(TypeName = "int")]
+        public int BandaId { get; set; }
+
         public virtual Buffet Buffet { get; set; }
                 
         public virtual Banda Banda { get; set; }

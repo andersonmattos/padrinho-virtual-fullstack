@@ -64,6 +64,7 @@ export class CasamentoComponent implements OnInit {
 
   ngOnInit() {    
     console.log('ngOnInit - Casamento Component');
+    console.log('this.casamentoId',this.casamentoId);
 
     this.formPartner1 = this.formBuilder.group({
       noivo1: [null]      
@@ -74,16 +75,19 @@ export class CasamentoComponent implements OnInit {
     });
 
     this.service.getUserIdByCasamentoId(this.casamentoId).subscribe(
-      (res:any) => {this.userId = res.idUser;}
+      (res:any) => {
+        this.userId = res.usuario;
+        console.log('this.userId',this.userId)
+      }
     )
 
-    this.service.getUserId(this.userId).subscribe(
-      res => {     
+    //this.service.getUserId(this.userId).subscribe(
+      //res => {     
         this.service.getPartnerName(this.casamentoId).subscribe(
-            (a:any) => {this.noivo1 = a.noivo1; this.noivo2 = a.noivo2;}
+            (a:any) => {this.noivo1 = a.nomeParceiroA; this.noivo2 = a.nomeParceiroB;}
          )
-        }
-    )    
+       // }
+    //)    
 
     this.service.getInviteesByCasamentoId(this.casamentoId).subscribe(
       (invitee => {this.dataSource = invitee}))   
@@ -140,7 +144,8 @@ export class CasamentoComponent implements OnInit {
     ) */
     //this.service.getCasamentoByUserId(this.casamentoId)      
     console.log(this.rootPath+this.userId)
-    this.route.navigate([this.rootPath,this.userId])
+    //this.route.navigate([this.rootPath,this.userId])
+    this.route.navigate([this.rootPath,1])
   }
 
   onChangePartner1() {
@@ -152,13 +157,19 @@ export class CasamentoComponent implements OnInit {
   }
 
   onEditConvidado(id: number, nome: string, quantidade: number) {
-        
+    
+    console.log("id", id)
+    console.log("nome", nome)
+    console.log("quantidade", quantidade)
+
     this.formPatchInvitees = this.formBuilder.group({      
       nome: nome,
-      quantidade: quantidade
+      quantidadeConvidado: quantidade
     })
     
-    this.InviteeService.patchConvidadoById(id.toString(), this.formPatchInvitees).subscribe()
+    this.InviteeService.patchConvidadoNomeById(id.toString(), this.formPatchInvitees.controls['nome'].value).subscribe()
+    this.InviteeService.patchConvidadoQuantidadeById(id.toString(), this.formPatchInvitees.controls['quantidadeConvidado'].value).subscribe()
+    
     alert('Atualizado com sucesso')
 
   }
@@ -190,7 +201,7 @@ const ELEMENT_DATA: Invitees[] = [
 
 const COLUMNS_SCHEMA = [
   {
-    key: "id",
+    key: "convidadoId",
     type: "number",
     label: "Id"
   },    
@@ -200,7 +211,7 @@ const COLUMNS_SCHEMA = [
     label: "Nome convidado"
   },
   {
-    key: "quantidade",
+    key: "quantidadeConvidado",
     type: "number",
     label: "Quantidade convidados"
   },

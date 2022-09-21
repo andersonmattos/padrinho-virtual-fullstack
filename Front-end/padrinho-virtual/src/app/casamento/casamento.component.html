@@ -52,7 +52,7 @@
                             <button mat-button (click)="element.isEdit = !element.isEdit">
                               Edit
                             </button>
-                            <button mat-button (click)="removeRow(element.id)">
+                            <button mat-button (click)="removeRow(element.convidadoId)">
                               Delete
                             </button>
                           </div>
@@ -62,7 +62,7 @@
                         </div>
                         <div [ngSwitch]="col.type" *ngIf="element.isEdit">
                           <div class="btn-edit" *ngSwitchCase="'isEdit'">
-                            <button mat-button (click)="onEditConvidado(element.id, element.nome, element.quantidade)">Atualizar</button>
+                            <button mat-button (click)="onEditConvidado(element.convidadoId, element.nome, element.quantidadeConvidado)">Atualizar</button>
                             <button mat-button (click)="element.isEdit = !element.isEdit">Finalizar Edição</button>                            
                           </div>
                           <mat-form-field *ngSwitchDefault>

@@ -524,3 +524,9 @@ D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtu
 D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.Build.dll
 D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.Build.Framework.dll
 D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.NET.StringTools.dll
+D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Castle.Core.dll
+D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll
+D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Newtonsoft.Json.Bson.dll
+D:\Downloads\Cursos\Pós\16 - Projeto Integrador\Padrinho Virtual\padrinho-virtual-fullstack\Back-end\PVWApi\PVWApi\bin\Release\net6.0\Swashbuckle.AspNetCore.Newtonsoft.dll

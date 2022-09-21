@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Data.Common;
 
 namespace PVWApi.Models
 {
@@ -6,7 +7,7 @@ namespace PVWApi.Models
     {
         public CasamentoContext(DbContextOptions<CasamentoContext> options) : base(options)
         {
-
+        
         }
 
         public DbSet<Casamento> Casamento { get; set; }

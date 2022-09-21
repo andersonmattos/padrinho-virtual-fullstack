@@ -18,7 +18,8 @@ export class HomeComponent implements OnInit {
 
   //Variáveis locais
   userId: string = '';
-  rootPath: string = '/casamento/';
+  rootPath: string = '/Casamento/';
+  //rootPath: string = 'https://padrinhovirtual.azurewebsites.net/api/Casamento/';
   //userPath: string  = 'http://localhost:3000/user/'
   //userPath: string  = 'https://localhost:44388/api/Usuarios/'
   userPath: string  = 'https://padrinhovirtual.azurewebsites.net/api/Usuario/'
@@ -47,22 +48,25 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.userId);
     this.http.get<any>(this.userPath+this.userId).subscribe(res => {
-      this.hasProject = JSON.parse(res.temCasamento)      
+      this.hasProject = JSON.parse(res.temCasamento);
+      console.log('this.hasProject', this.hasProject)
     })
-    console.log(this.hasProject)
+    //console.log('this.hasProject', this.hasProject)
+    console.log('this.userPath+this.userId', this.userPath+this.userId)
 
     this.http.get<any>(this.userPath+this.userId).subscribe(
-      res => {this.existingCasamentoId = res.idCasamento} 
-    )
-
-    //console.log(this.existingCasamentoId)
+      //res => {this.existingCasamentoId = res.idCasamento 
+      res => {this.existingCasamentoId = res.casamentoId;
+        console.log('this.existingCasamentoId',this.existingCasamentoId)}      
+    )    
     
   }
 
   onClickEdit() {
     console.log('Entrando na rotina onClickEdit()')
     console.log('Valor da variável rootPath: ' + this.rootPath)        
-    this.router.navigate([this.rootPath,this.existingCasamentoId])
+    console.log('Valor da variável rootPath,this.existingCasamentoId: ' + this.rootPath+this.existingCasamentoId)
+    this.router.navigate([this.rootPath+this.existingCasamentoId])
   }
 
   onClickNew() {

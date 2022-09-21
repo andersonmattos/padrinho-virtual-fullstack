@@ -1,6 +1,6 @@
 export interface ConvidadosInterface {
-    id: string,
-    idCasamento: number,
+    convidadoId: number,
+    casamentoId: number,
     nome: string,
-    quantidade: number
+    quantidadeConvidado: number
 }
