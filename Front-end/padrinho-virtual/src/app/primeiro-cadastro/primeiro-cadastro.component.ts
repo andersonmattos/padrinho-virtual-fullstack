@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { PrimeiroCadastroService } from './services/primeiro-cadastro.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UsersInterface } from '../login/interface/users';
 import { Router } from '@angular/router';
@@ -29,9 +29,9 @@ export class PrimeiroCadastroComponent implements OnInit {
 
   ngOnInit(): void {
     this.formCadastro = this.formBuilder.group({
-      email: [null],
-      nome: [null],
-      senha: [null],
+      email: [null, [Validators.required]],
+      nome: [null, [Validators.required]],
+      senha: [null, [Validators.required]],
       temCasamento: 0,
       casamentoId: 0
     });

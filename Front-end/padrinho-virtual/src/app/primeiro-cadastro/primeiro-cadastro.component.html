@@ -19,16 +19,25 @@
         <mat-form-field class="input-field-width" appearance="fill">
             <mat-label class="label-color">E-mail</mat-label>
             <input formControlName="email" matInput placeholder="Insira o endereço de e-mail">
+            <mat-error *ngIf="formCadastro.get('email')?.errors" >
+                Campo obrigatório
+            </mat-error>
         </mat-form-field>
 
         <mat-form-field class="input-field-width" appearance="fill">
             <mat-label class="label-color">Nome</mat-label>
-            <input formControlName="nome" matInput placeholder="Insira seu primeiro nome">
+            <input formControlName="nome" matInput placeholder="Insira seu nome completo">
+            <mat-error *ngIf="formCadastro.get('nome')?.errors" >
+                Campo obrigatório
+            </mat-error>
         </mat-form-field>
     
         <mat-form-field class="input-field-width" appearance="fill">
             <mat-label class="label-color">Senha</mat-label>
             <input formControlName="senha" type="password" matInput placeholder="Defina sua senha">
+            <mat-error *ngIf="formCadastro.get('senha')?.errors" >
+                Campo obrigatório
+            </mat-error>
         </mat-form-field>
 
         <!--Botões-->
