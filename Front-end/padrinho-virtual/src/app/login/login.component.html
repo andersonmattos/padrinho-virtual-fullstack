@@ -12,11 +12,18 @@
             <mat-form-field class="input-field-width" appearance="fill" >
                 <mat-label class="label-color">E-mail</mat-label>
                 <input matInput formControlName="email">
+                <mat-error *ngIf="formLogin.get('email')?.errors" >
+                    E-mail obrigatório
+                </mat-error>     
             </mat-form-field>
+            
         
             <mat-form-field class="input-field-width" appearance="fill" >
                 <mat-label class="label-color">Senha</mat-label>
                 <input type="password" matInput formControlName="senha">
+                <mat-error *ngIf="formLogin.get('senha')?.errors" >
+                    Senha obrigatória
+                </mat-error> 
             </mat-form-field>
 
             <!--Botões-->

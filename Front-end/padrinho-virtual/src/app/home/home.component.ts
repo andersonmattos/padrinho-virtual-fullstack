@@ -23,7 +23,8 @@ export class HomeComponent implements OnInit {
   //userPath: string  = 'http://localhost:3000/user/'
   //userPath: string  = 'https://localhost:44388/api/Usuarios/'
   userPath: string  = 'https://padrinhovirtual.azurewebsites.net/api/Usuario/'
-  casamentoPath: string  = 'http://localhost:3000/casamento/'
+  //casamentoPath: string  = 'http://localhost:3000/casamento/'
+  casamentoPath: string  = 'https://padrinhovirtual.azurewebsites.net/api/Casamento/'
   users: UsersInterface[] = [];
   hasProject: any = 0;
   formNewCasamento: FormGroup = new FormGroup({});
@@ -125,10 +126,12 @@ export class HomeComponent implements OnInit {
     //this.dialog.open(HomeDialogComponent);
     const dialogRef = this.dialog.open(HomeDialogComponent);
 
-    dialogRef.afterClosed().subscribe(result => {      
-      this.http.patch<any>(this.casamentoPath+this.existingCasamentoId, {status:0}).subscribe();      
-      this.http.patch<any>(this.userPath+this.userId, {temCasamento:0,idCasamento:0}).subscribe();
-      alert('Casamento encerrado com sucesso')
+    dialogRef.afterClosed().subscribe(result => {
+            
+      //this.http.patch<any>(this.casamentoPath+this.existingCasamentoId, {status:0}).subscribe();      
+      //this.http.patch<any>(this.userPath+this.userId, [{value:"0", path: "temCasamento", op: "replace"}, {value:0, path: "/casamentoId", op: "replace"}]).subscribe();
+      this.http.put<any>(this.userPath+this.userId,[""]).subscribe();
+      //alert('Casamento encerrado com sucesso')
       window.location.reload();
     });
   }

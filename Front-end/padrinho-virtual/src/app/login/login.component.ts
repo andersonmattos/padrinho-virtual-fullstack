@@ -5,7 +5,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { LoginService } from './services/login.service';
 import { UsersInterface } from './interface/users';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -21,8 +22,6 @@ export class LoginComponent implements OnInit {
   //path: string = "https://localhost:44388/api/Usuarios"
   path: string = "https://padrinhovirtual.azurewebsites.net/api/Usuario"
   userId: string = '';
-  
-  
     
   constructor(
     private service: LoginService, 
@@ -32,8 +31,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.formLogin = this.formBuilder.group({
-      email: [null],
-      senha: [null]
+      email: [null, [Validators.required]],
+      senha: [null, [Validators.required]]
     });
 
     this.service.getUsers().subscribe(usuarios => this.users = usuarios);    
@@ -67,6 +66,5 @@ export class LoginComponent implements OnInit {
     //console.log('Aehoo')
     this.router.navigate(['/primeiro-cadastro']);
   }
-
 
 }

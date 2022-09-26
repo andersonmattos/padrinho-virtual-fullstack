@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PVWApi.Models;
@@ -122,6 +123,27 @@ namespace PVWApi.Controllers
         private bool UsuarioExists(int id)
         {
             return (_context.Usuario?.Any(e => e.LoginId == id)).GetValueOrDefault();
+        }
+
+        [HttpPatch("{id}")]
+        public async Task<ActionResult> Patch(int id, [FromBody] JsonPatchDocument<Usuario> patchUsuario)
+        {
+            if (patchUsuario != null)
+            {
+                var usuario = await _context.Usuario.FirstOrDefaultAsync(cat => cat.LoginId == id);
+                patchUsuario.ApplyTo(usuario, ModelState);
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                return new ObjectResult(usuario);
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
+
         }
     }
 }
