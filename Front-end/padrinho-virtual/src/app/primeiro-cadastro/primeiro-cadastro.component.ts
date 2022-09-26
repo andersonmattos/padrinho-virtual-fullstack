@@ -36,14 +36,18 @@ export class PrimeiroCadastroComponent implements OnInit {
       casamentoId: 0
     });
    
-    this.service.getUsers().subscribe(usr => this.users = usr); 
+    this.service.getUsers().subscribe(usr => {this.users = usr, console.log(this.users)}); 
+       
     console.log(this.formCadastro.value)   
   }
 
   //Adiciona usuário ao arquivo json
   addUser(){
+
+    console.log(this.formCadastro.controls['email'].value)
+    this.service.verifyExistingUser(this.users,this.formCadastro.controls['email'].value)
     
-    this.http.post<any>(this.path,this.formCadastro.value).subscribe(
+    /*this.http.post<any>(this.path,this.formCadastro.value).subscribe(
       res => {
         
         
@@ -51,7 +55,7 @@ export class PrimeiroCadastroComponent implements OnInit {
         this.formCadastro.reset();
         this.router.navigate(['']);
       }
-    )
+    )*/
   }
 
 }
