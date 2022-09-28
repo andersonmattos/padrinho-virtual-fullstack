@@ -24,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConvidadosComponent } from './convidados/convidados.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HomeDialogComponent } from './home/home-dialog/home-dialog.component';
-import { HomeDialogDeleteComponent } from './home/home-dialog-delete/home-dialog-delete.component'
+import { HomeDialogDeleteComponent } from './home/home-dialog-delete/home-dialog-delete.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 @NgModule({
@@ -55,9 +57,11 @@ import { HomeDialogDeleteComponent } from './home/home-dialog-delete/home-dialog
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatDialogModule    
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
-  providers: [LoginComponent],
+  providers: [LoginComponent,MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

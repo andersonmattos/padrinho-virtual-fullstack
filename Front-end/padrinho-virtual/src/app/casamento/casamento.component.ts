@@ -39,9 +39,11 @@ export class CasamentoComponent implements OnInit {
   inviteePath: string = 'http://localhost:3000/convidados/';
   formPartner1: FormGroup = new FormGroup({});
   formPartner2: FormGroup = new FormGroup({});
+  formCasamento: FormGroup = new FormGroup({});
   formPatchInvitees: FormGroup = new FormGroup({});
   noivo1: CasamentoInterface[] = [];
   noivo2: CasamentoInterface[] = [];
+  data: CasamentoInterface[] = [];
   tabIndex: any = [];
   hadChange1: boolean = false;
   hadChange2: boolean = false;
@@ -74,6 +76,11 @@ export class CasamentoComponent implements OnInit {
       noivo2: [null]      
     });
 
+    this.formCasamento = this.formBuilder.group({
+      data: [null],
+      status: 1  
+    });
+
     this.service.getUserIdByCasamentoId(this.casamentoId).subscribe(
       (res:any) => {
         this.userId = res.usuario;
@@ -84,7 +91,7 @@ export class CasamentoComponent implements OnInit {
     //this.service.getUserId(this.userId).subscribe(
       //res => {     
         this.service.getPartnerName(this.casamentoId).subscribe(
-            (a:any) => {this.noivo1 = a.nomeParceiroA; this.noivo2 = a.nomeParceiroB;}
+            (a:any) => {this.noivo1 = a.nomeParceiroA; this.noivo2 = a.nomeParceiroB; this.data = a.data}
          )
        // }
     //)    

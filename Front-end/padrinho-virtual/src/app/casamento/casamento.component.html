@@ -20,7 +20,7 @@
             </article>
       </div>
         <mat-tab-group mat-align-tabs="start" (selectedTabChange)="tabChanged($event)">
-            <mat-tab label="Noivos">
+            <mat-tab label="Casamento">
                 <form [formGroup]="formPartner1" (ngSubmit)="saveChanges()" >
                     <p>
                         <mat-form-field class="field-width" appearance="fill">
@@ -35,9 +35,20 @@
                             <mat-label>Nome do noivo(a)</mat-label>
                             <input formControlName = "noivo2" matInput value = "{{noivo2}}" (change)="onChangePartner2()">
                         </mat-form-field>
-
-                        <button mat-raised-button>Salvar</button>
                     </p>
+                </form>
+                <form [formGroup]="formCasamento" (ngSubmit)="saveChanges()">
+                  <p>
+                    <mat-form-field class="field-width" appearance="fill">
+                        <mat-label>Data do Casamento</mat-label>
+                        <input formControlName = "data" matInput [matDatepicker]="picker" value = "{{data}}" (change)="onChangePartner2()" >
+                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <button mat-raised-button>Salvar</button>
+                </p>
                 </form>
             </mat-tab>            
             <mat-tab label="Convidados">                

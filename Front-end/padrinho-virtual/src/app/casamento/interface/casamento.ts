@@ -5,6 +5,7 @@ export interface CasamentoInterface {
     noivo2: string,
     status: number,
     FestaId: number,
+    data: Date;
     CerimoniaId: number,
     DecoracaoId: number,
     ConvidadoId: number

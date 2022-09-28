@@ -9,10 +9,10 @@ namespace PVWApi.Models
         public int CasamentoId { get; set; }
 
         [Column(TypeName = "varchar(70)")]
-        public string NomeParceiroA { get; set; }
+        public string? NomeParceiroA { get; set; }
 
         [Column(TypeName = "varchar(70)")]
-        public string NomeParceiroB { get; set; }
+        public string? NomeParceiroB { get; set; }
 
         [Column(TypeName = "bit")]
         public Boolean Status { get; set; }
