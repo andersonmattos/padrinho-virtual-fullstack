@@ -20,19 +20,29 @@ namespace PVWApi.Models
         [Column(TypeName = "date")]
         public DateTime Data { get; set; }
 
-        [Column(TypeName = "int")]
+        /*[Column(TypeName = "int")]
         public int UsuarioId { get; set; }
 
         [Column(TypeName = "int")]
         public int FestaId { get; set; }
 
         [Column(TypeName = "int")]
-        public int DecoracaoId { get; set; }        
+        public int DecoracaoId { get; set; }
 
-        public virtual Usuario Usuario { get; set; }
-        public virtual Festa Festa { get; set; }
-        public virtual Cerimonia Cerimonia { get; set; }
-        public virtual Decoracao Decoracao { get; set; }
-        public virtual ICollection<Convidado> Convidado { get; set; }
+        [Column(TypeName = "int")]
+        public int CerimoniaId { get; set; }*/
+
+        [ForeignKey("LoginId")]
+        public virtual Usuario? Usuario { get; set; }
+        
+        [ForeignKey("FestaId")]
+        public virtual Festa? Festa { get; set; }
+        
+        [ForeignKey("CerimoniaId")]
+        public virtual Cerimonia? Cerimonia { get; set; }
+
+        [ForeignKey("DecoracaoId")]
+        public virtual Decoracao? Decoracao { get; set; }
+        public virtual ICollection<Convidado>? Convidado { get; set; }
     }
 }

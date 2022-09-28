@@ -1384,18 +1384,6 @@
           "format": "date-time",
           "type": "string"
         },
-        "usuarioId": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "festaId": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "decoracaoId": {
-          "format": "int32",
-          "type": "integer"
-        },
         "usuario": {
           "$ref": "#/definitions/Usuario"
         },
@@ -1462,10 +1450,6 @@
           "format": "date-time",
           "type": "string"
         },
-        "celebranteId": {
-          "format": "int32",
-          "type": "integer"
-        },
         "celebrante": {
           "$ref": "#/definitions/Celebrante"
         },
@@ -1488,10 +1472,6 @@
           "type": "string"
         },
         "quantidadeConvidado": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "casamentoId": {
           "format": "int32",
           "type": "integer"
         },
@@ -1546,14 +1526,6 @@
         "valor": {
           "format": "double",
           "type": "number"
-        },
-        "buffetId": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "bandaId": {
-          "format": "int32",
-          "type": "integer"
         },
         "buffet": {
           "$ref": "#/definitions/Buffet"

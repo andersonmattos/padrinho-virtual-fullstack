@@ -21,17 +21,19 @@ namespace PVWApi.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Valor { get; set; }
 
-        [Column(TypeName = "int")]
+        /*[Column(TypeName = "int")]
         public int BuffetId { get; set; }
 
         [Column(TypeName = "int")]
-        public int BandaId { get; set; }
+        public int BandaId { get; set; }*/
 
-        public virtual Buffet Buffet { get; set; }
-                
-        public virtual Banda Banda { get; set; }
+        [ForeignKey("BuffetId")]
+        public virtual Buffet? Buffet { get; set; }
 
-        public virtual ICollection<Casamento> Casamento { get; set; }
+        [ForeignKey("BandaId")]
+        public virtual Banda? Banda { get; set; }
+
+        public virtual ICollection<Casamento>? Casamento { get; set; }
 
     }
 }

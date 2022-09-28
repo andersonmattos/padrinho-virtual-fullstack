@@ -58,21 +58,6 @@ namespace PVWApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Convidado",
-                columns: table => new
-                {
-                    ConvidadoId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "varchar(70)", nullable: false),
-                    QuantidadeConvidado = table.Column<int>(type: "int", nullable: false),
-                    CasamentoId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Convidado", x => x.ConvidadoId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Decoracao",
                 columns: table => new
                 {
@@ -114,8 +99,8 @@ namespace PVWApi.Migrations
                     Capacidade = table.Column<int>(type: "int", nullable: false),
                     HorasContratadas = table.Column<TimeSpan>(type: "time", nullable: false),
                     Valor = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    BuffetId = table.Column<int>(type: "int", nullable: false),
-                    BandaId = table.Column<int>(type: "int", nullable: false)
+                    BuffetId = table.Column<int>(type: "int", nullable: true),
+                    BandaId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -124,14 +109,12 @@ namespace PVWApi.Migrations
                         name: "FK_Festa_Banda_BandaId",
                         column: x => x.BandaId,
                         principalTable: "Banda",
-                        principalColumn: "BandaId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "BandaId");
                     table.ForeignKey(
                         name: "FK_Festa_Buffet_BuffetId",
                         column: x => x.BuffetId,
                         principalTable: "Buffet",
-                        principalColumn: "BuffetId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "BuffetId");
                 });
 
             migrationBuilder.CreateTable(
@@ -144,7 +127,7 @@ namespace PVWApi.Migrations
                     Religiosa = table.Column<bool>(type: "bit", nullable: false),
                     Local = table.Column<string>(type: "varchar(200)", nullable: false),
                     Date = table.Column<DateTime>(type: "date", nullable: false),
-                    CelebranteId = table.Column<int>(type: "int", nullable: false)
+                    CelebranteId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -153,8 +136,7 @@ namespace PVWApi.Migrations
                         name: "FK_Cerimonia_Celebrante_CelebranteId",
                         column: x => x.CelebranteId,
                         principalTable: "Celebrante",
-                        principalColumn: "CelebranteId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CelebranteId");
                 });
 
             migrationBuilder.CreateTable(
@@ -167,11 +149,10 @@ namespace PVWApi.Migrations
                     NomeParceiroB = table.Column<string>(type: "varchar(70)", nullable: false),
                     Status = table.Column<bool>(type: "bit", nullable: false),
                     Data = table.Column<DateTime>(type: "date", nullable: false),
-                    UsuarioId = table.Column<int>(type: "int", nullable: false),
-                    FestaId = table.Column<int>(type: "int", nullable: false),
-                    DecoracaoId = table.Column<int>(type: "int", nullable: false),
-                    ConvidadoId = table.Column<int>(type: "int", nullable: false),
-                    CerimoniaId = table.Column<int>(type: "int", nullable: false)
+                    LoginId = table.Column<int>(type: "int", nullable: true),
+                    FestaId = table.Column<int>(type: "int", nullable: true),
+                    CerimoniaId = table.Column<int>(type: "int", nullable: true),
+                    DecoracaoId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -180,43 +161,48 @@ namespace PVWApi.Migrations
                         name: "FK_Casamento_Cerimonia_CerimoniaId",
                         column: x => x.CerimoniaId,
                         principalTable: "Cerimonia",
-                        principalColumn: "CerimoniaId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Casamento_Convidado_ConvidadoId",
-                        column: x => x.ConvidadoId,
-                        principalTable: "Convidado",
-                        principalColumn: "ConvidadoId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "CerimoniaId");
                     table.ForeignKey(
                         name: "FK_Casamento_Decoracao_DecoracaoId",
                         column: x => x.DecoracaoId,
                         principalTable: "Decoracao",
-                        principalColumn: "DecoracaoId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "DecoracaoId");
                     table.ForeignKey(
                         name: "FK_Casamento_Festa_FestaId",
                         column: x => x.FestaId,
                         principalTable: "Festa",
-                        principalColumn: "FestaId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "FestaId");
                     table.ForeignKey(
-                        name: "FK_Casamento_Usuario_UsuarioId",
-                        column: x => x.UsuarioId,
+                        name: "FK_Casamento_Usuario_LoginId",
+                        column: x => x.LoginId,
                         principalTable: "Usuario",
-                        principalColumn: "LoginId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "LoginId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Convidado",
+                columns: table => new
+                {
+                    ConvidadoId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "varchar(70)", nullable: false),
+                    QuantidadeConvidado = table.Column<int>(type: "int", nullable: false),
+                    CasamentoId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Convidado", x => x.ConvidadoId);
+                    table.ForeignKey(
+                        name: "FK_Convidado_Casamento_CasamentoId",
+                        column: x => x.CasamentoId,
+                        principalTable: "Casamento",
+                        principalColumn: "CasamentoId");
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Casamento_CerimoniaId",
                 table: "Casamento",
                 column: "CerimoniaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Casamento_ConvidadoId",
-                table: "Casamento",
-                column: "ConvidadoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Casamento_DecoracaoId",
@@ -229,14 +215,19 @@ namespace PVWApi.Migrations
                 column: "FestaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Casamento_UsuarioId",
+                name: "IX_Casamento_LoginId",
                 table: "Casamento",
-                column: "UsuarioId");
+                column: "LoginId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cerimonia_CelebranteId",
                 table: "Cerimonia",
                 column: "CelebranteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Convidado_CasamentoId",
+                table: "Convidado",
+                column: "CasamentoId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Festa_BandaId",
@@ -252,13 +243,13 @@ namespace PVWApi.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Convidado");
+
+            migrationBuilder.DropTable(
                 name: "Casamento");
 
             migrationBuilder.DropTable(
                 name: "Cerimonia");
-
-            migrationBuilder.DropTable(
-                name: "Convidado");
 
             migrationBuilder.DropTable(
                 name: "Decoracao");

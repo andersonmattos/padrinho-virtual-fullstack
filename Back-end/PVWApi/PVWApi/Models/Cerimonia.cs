@@ -20,12 +20,13 @@ namespace PVWApi.Models
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }
 
-        [Column(TypeName = "int")]
-        public int CelebranteId { get; set; }
+        /*[Column(TypeName = "int")]
+        public int CelebranteId { get; set; }*/
 
-        public virtual Celebrante Celebrante { get; set; }
+        [ForeignKey("CelebranteId")]
+        public virtual Celebrante? Celebrante { get; set; }
 
-        public virtual ICollection<Casamento> Casamento { get; set; }
+        public virtual ICollection<Casamento>? Casamento { get; set; }
         
     }
 }

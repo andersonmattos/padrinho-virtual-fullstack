@@ -12,5 +12,5 @@ export class HomeDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+    
 }

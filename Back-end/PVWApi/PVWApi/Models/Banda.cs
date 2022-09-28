@@ -23,7 +23,7 @@ namespace PVWApi.Models
         [Column(TypeName = "decimal(18,2)")]
         public decimal Valor { get; set; }
 
-        public virtual ICollection<Festa> Festa { get; set; }
+        public virtual ICollection<Festa>? Festa { get; set; }
 
 
     }

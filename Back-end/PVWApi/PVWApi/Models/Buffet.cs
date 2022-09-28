@@ -20,7 +20,7 @@ namespace PVWApi.Models
         [Column(TypeName = "varchar(400)")]
         public string Comidas { get; set; }                
 
-        public virtual ICollection<Festa> Festa { get; set; }
+        public virtual ICollection<Festa>? Festa { get; set; }
 
     }
 }

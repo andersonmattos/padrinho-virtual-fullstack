@@ -22,7 +22,7 @@ namespace PVWApi.Models
 
         [Column(TypeName = "int")]
         public int CasamentoId { get; set; }
-
-        public virtual ICollection<Casamento> Casamento { get; set; }
+                
+        public virtual ICollection<Casamento>? Casamento { get; set; }
     }
 }

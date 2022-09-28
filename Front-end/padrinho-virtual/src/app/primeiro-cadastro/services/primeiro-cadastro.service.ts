@@ -24,10 +24,11 @@ export class PrimeiroCadastroService {
       (x) => x.email === usrName      
     )
 
-    if (user){
+    /*if (user){
       alert('E-mail já cadastrado')
     } else {
       console.log ('')
-    }
+    }*/
+    return user
   }
 }

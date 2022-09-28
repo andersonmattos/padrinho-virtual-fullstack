@@ -86,16 +86,19 @@ namespace PVWApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CasamentoId"), 1L, 1);
 
-                    b.Property<int>("CerimoniaId")
+                    b.Property<int?>("CerimoniaId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Data")
                         .HasColumnType("date");
 
-                    b.Property<int>("DecoracaoId")
+                    b.Property<int?>("DecoracaoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FestaId")
+                    b.Property<int?>("FestaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("LoginId")
                         .HasColumnType("int");
 
                     b.Property<string>("NomeParceiroA")
@@ -109,9 +112,6 @@ namespace PVWApi.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("CasamentoId");
 
                     b.HasIndex("CerimoniaId");
@@ -120,7 +120,7 @@ namespace PVWApi.Migrations
 
                     b.HasIndex("FestaId");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("LoginId");
 
                     b.ToTable("Casamento");
                 });
@@ -156,7 +156,7 @@ namespace PVWApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CerimoniaId"), 1L, 1);
 
-                    b.Property<int>("CelebranteId")
+                    b.Property<int?>("CelebranteId")
                         .HasColumnType("int");
 
                     b.Property<bool>("Civil")
@@ -187,7 +187,7 @@ namespace PVWApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ConvidadoId"), 1L, 1);
 
-                    b.Property<int>("CasamentoId")
+                    b.Property<int?>("CasamentoId")
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
@@ -236,10 +236,10 @@ namespace PVWApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FestaId"), 1L, 1);
 
-                    b.Property<int>("BandaId")
+                    b.Property<int?>("BandaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("BuffetId")
+                    b.Property<int?>("BuffetId")
                         .HasColumnType("int");
 
                     b.Property<int>("Capacidade")
@@ -299,27 +299,19 @@ namespace PVWApi.Migrations
                 {
                     b.HasOne("PVWApi.Models.Cerimonia", "Cerimonia")
                         .WithMany("Casamento")
-                        .HasForeignKey("CerimoniaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CerimoniaId");
 
                     b.HasOne("PVWApi.Models.Decoracao", "Decoracao")
                         .WithMany("Casamento")
-                        .HasForeignKey("DecoracaoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DecoracaoId");
 
                     b.HasOne("PVWApi.Models.Festa", "Festa")
                         .WithMany("Casamento")
-                        .HasForeignKey("FestaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FestaId");
 
                     b.HasOne("PVWApi.Models.Usuario", "Usuario")
                         .WithMany("Casamento")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("LoginId");
 
                     b.Navigation("Cerimonia");
 
@@ -334,9 +326,7 @@ namespace PVWApi.Migrations
                 {
                     b.HasOne("PVWApi.Models.Celebrante", "Celebrante")
                         .WithMany("Cerimonia")
-                        .HasForeignKey("CelebranteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CelebranteId");
 
                     b.Navigation("Celebrante");
                 });
@@ -345,9 +335,7 @@ namespace PVWApi.Migrations
                 {
                     b.HasOne("PVWApi.Models.Casamento", "Casamento")
                         .WithMany("Convidado")
-                        .HasForeignKey("CasamentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CasamentoId");
 
                     b.Navigation("Casamento");
                 });
@@ -356,15 +344,11 @@ namespace PVWApi.Migrations
                 {
                     b.HasOne("PVWApi.Models.Banda", "Banda")
                         .WithMany("Festa")
-                        .HasForeignKey("BandaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BandaId");
 
                     b.HasOne("PVWApi.Models.Buffet", "Buffet")
                         .WithMany("Festa")
-                        .HasForeignKey("BuffetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BuffetId");
 
                     b.Navigation("Banda");
 

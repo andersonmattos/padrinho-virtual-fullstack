@@ -4,10 +4,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersInterface } from './../login/interface/users';
 import { HttpClient } from '@angular/common/http';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog'
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
 import { HomeDialogComponent } from './home-dialog/home-dialog.component';
 import { CasamentoService } from './../casamento/services/casamento.service';
 import { HomeDialogDeleteComponent } from './home-dialog-delete/home-dialog-delete.component';
+import { HomeService } from './services/home.service';
+import { ConvidadosInterface } from '../convidados/interface/convidados';
 
 @Component({
   selector: 'app-home',
@@ -33,6 +35,7 @@ export class HomeComponent implements OnInit {
   frmPatchUser: FormGroup = new FormGroup({});
   casamentoId: string = '';
   existingCasamentoId: string = '';
+  convidados: ConvidadosInterface[] = [];
   
   constructor(
     private route: ActivatedRoute
@@ -40,7 +43,8 @@ export class HomeComponent implements OnInit {
     ,private http: HttpClient    
     , private formBuilder: FormBuilder
     , private CasamentoService: CasamentoService
-    , public dialog: MatDialog    
+    , public dialog: MatDialog  
+    , public service: HomeService  
   ) { 
     //Busca o id do usuário no endereço da página
     this.userId = this.route.snapshot.params['userId'];
@@ -108,11 +112,26 @@ export class HomeComponent implements OnInit {
   onClickeDelete(enterAnimationDuration: string, exitAnimationDuration: string): void {
     const dialogRef = this.dialog.open(HomeDialogDeleteComponent);
 
-    dialogRef.afterClosed().subscribe(result => {      
-      this.http.delete<any>(this.casamentoPath+this.existingCasamentoId).subscribe();
-      this.http.patch<any>(this.userPath+this.userId,{temCasamento:0,idCasamento:0}).subscribe();
-      alert('Casamento deletado com sucesso')      
-      window.location.reload();
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      if(result == false){
+        
+        this.service.getConvidadoByCasamentoId(this.existingCasamentoId).subscribe(
+          cnv => {
+            this.convidados = cnv
+
+            if(!this.convidados.length){
+              this.service.deleteCasamento(this.existingCasamentoId).subscribe();
+              this.service.patchUserById(this.userId).subscribe();
+              alert('Casamento deletado com sucesso') 
+              window.location.reload();
+            }else{
+              alert('Necessário deletar os convidados antes.')
+            }
+          }
+        )
+      }
+      
     });
   }
   
@@ -127,13 +146,17 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(HomeDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-            
-      //this.http.patch<any>(this.casamentoPath+this.existingCasamentoId, {status:0}).subscribe();      
-      //this.http.patch<any>(this.userPath+this.userId, [{value:"0", path: "temCasamento", op: "replace"}, {value:0, path: "/casamentoId", op: "replace"}]).subscribe();
-      this.http.put<any>(this.userPath+this.userId,[""]).subscribe();
-      //alert('Casamento encerrado com sucesso')
-      window.location.reload();
-    });
+      console.log(`Dialog result: ${result}`);
+      if(result == false){
+        this.service.patchUserById(this.userId).subscribe();
+        alert('Casamento concluído com sucesso');
+        window.location.reload();
+      }      
+    });    
+  }
+
+  verifyExistingInvitees(){
+
   }
 
 }

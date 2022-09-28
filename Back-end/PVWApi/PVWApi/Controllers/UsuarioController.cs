@@ -87,7 +87,7 @@ namespace PVWApi.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         //[Route("/post")]
-        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
+        public async Task<ActionResult<Usuario>> PostUsuario([FromBody] Usuario usuario)
         {
           if (_context.Usuario == null)
           {
@@ -128,7 +128,33 @@ namespace PVWApi.Controllers
         [HttpPatch("{id}")]
         public async Task<ActionResult> Patch(int id, [FromBody] JsonPatchDocument<Usuario> patchUsuario)
         {
-            if (patchUsuario != null)
+            if (patchUsuario == null)
+            {
+                return BadRequest();
+            }
+
+            var usuarioDB = await _context.Usuario.FirstOrDefaultAsync(usr => usr.LoginId == id);
+
+            if (usuarioDB == null)
+            {
+                return NotFound();
+            }
+
+            patchUsuario.ApplyTo(usuarioDB, ModelState);
+
+            var isValid = TryValidateModel(usuarioDB);
+
+            if (!isValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+
+            /*
+                if (patchUsuario != null)
             {
                 var usuario = await _context.Usuario.FirstOrDefaultAsync(cat => cat.LoginId == id);
                 patchUsuario.ApplyTo(usuario, ModelState);
@@ -142,7 +168,9 @@ namespace PVWApi.Controllers
             else
             {
                 return BadRequest(ModelState);
-            }
+            }*/
+
+
 
         }
     }
