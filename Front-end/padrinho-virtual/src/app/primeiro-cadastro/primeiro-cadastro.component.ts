@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { PrimeiroCadastroService } from './services/primeiro-cadastro.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UsersInterface } from '../login/interface/users';
 import { Router } from '@angular/router';
@@ -14,7 +14,7 @@ export class PrimeiroCadastroComponent implements OnInit {
 
   //Declaração de variáveis
   users: UsersInterface[] = [];
-  formCadastro: FormGroup = new FormGroup({});
+  formCadastro: UntypedFormGroup = new UntypedFormGroup({});
   existingUser: boolean = false;
   //path: string = "http://localhost:3000/user";  
   //path: string = "https://localhost:44388/api/Usuarios"
@@ -23,7 +23,7 @@ export class PrimeiroCadastroComponent implements OnInit {
   isEmpty: boolean = true;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private router: Router,
     private service: PrimeiroCadastroService,
     private http: HttpClient

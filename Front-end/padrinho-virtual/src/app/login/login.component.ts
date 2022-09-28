@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { LoginService } from './services/login.service';
 import { UsersInterface } from './interface/users';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   //Declaraçao de variáveis
   users: UsersInterface[] = [];
-  formLogin: FormGroup = new FormGroup({});
+  formLogin: UntypedFormGroup = new UntypedFormGroup({});
   //path: string = "http://localhost:3000/user";
   //path: string = "https://localhost:44388/api/Usuarios"
   path: string = "https://padrinhovirtual.azurewebsites.net/api/Usuario"
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     
   constructor(
     private service: LoginService, 
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private http: HttpClient,
     private router: Router) {}
 

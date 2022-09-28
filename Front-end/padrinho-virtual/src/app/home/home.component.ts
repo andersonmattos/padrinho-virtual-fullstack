@@ -1,4 +1,4 @@
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -29,10 +29,10 @@ export class HomeComponent implements OnInit {
   casamentoPath: string  = 'https://padrinhovirtual.azurewebsites.net/api/Casamento/'
   users: UsersInterface[] = [];
   hasProject: any = 0;
-  formNewCasamento: FormGroup = new FormGroup({});
-  frm: FormGroup = new FormGroup({});
-  frmPatchCasamento: FormGroup = new FormGroup({});
-  frmPatchUser: FormGroup = new FormGroup({});
+  formNewCasamento: UntypedFormGroup = new UntypedFormGroup({});
+  frm: UntypedFormGroup = new UntypedFormGroup({});
+  frmPatchCasamento: UntypedFormGroup = new UntypedFormGroup({});
+  frmPatchUser: UntypedFormGroup = new UntypedFormGroup({});
   casamentoId: string = '';
   existingCasamentoId: string = '';
   convidados: ConvidadosInterface[] = [];
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     private route: ActivatedRoute
     ,private router: Router
     ,private http: HttpClient    
-    , private formBuilder: FormBuilder
+    , private formBuilder: UntypedFormBuilder
     , private CasamentoService: CasamentoService
     , public dialog: MatDialog  
     , public service: HomeService  

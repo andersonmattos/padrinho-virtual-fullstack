@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { query } from '@angular/animations';
 
 @Component({
@@ -13,9 +13,9 @@ import { query } from '@angular/animations';
 export class ConvidadosComponent implements OnInit {
 
   //Declaração de variáveis
-  formConvidadosNome:FormGroup = new FormGroup({})
-  formConvidadosQuantidade:FormGroup = new FormGroup({})
-  formConvidadosNew:FormGroup = new FormGroup({})
+  formConvidadosNome:UntypedFormGroup = new UntypedFormGroup({})
+  formConvidadosQuantidade:UntypedFormGroup = new UntypedFormGroup({})
+  formConvidadosNew:UntypedFormGroup = new UntypedFormGroup({})
   hadChangeNome: boolean = false;
   hadChangeQuantidade: boolean = false;
   convidadoId: string ='';
@@ -24,7 +24,7 @@ export class ConvidadosComponent implements OnInit {
   inviteeAddPath: string = 'https://padrinhovirtual.azurewebsites.net/api/Convidado/'
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
     , private route: Router
     , private router: ActivatedRoute
     , private http: HttpClient

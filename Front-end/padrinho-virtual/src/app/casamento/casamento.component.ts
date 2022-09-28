@@ -8,7 +8,7 @@ import { MatTabChangeEvent } from '@angular/material/tabs/tab-group';
 
 import { LoginComponent } from './../login/login.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { InviteeInterface } from './interface/invitee';
 import { CasamentoInterface } from './interface/casamento';
 import { CasamentoService } from './services/casamento.service';
@@ -37,10 +37,10 @@ export class CasamentoComponent implements OnInit {
   casamentoId: string = '';  
   rootPath: string = '/home/';
   inviteePath: string = 'http://localhost:3000/convidados/';
-  formPartner1: FormGroup = new FormGroup({});
-  formPartner2: FormGroup = new FormGroup({});
-  formCasamento: FormGroup = new FormGroup({});
-  formPatchInvitees: FormGroup = new FormGroup({});
+  formPartner1: UntypedFormGroup = new UntypedFormGroup({});
+  formPartner2: UntypedFormGroup = new UntypedFormGroup({});
+  formCasamento: UntypedFormGroup = new UntypedFormGroup({});
+  formPatchInvitees: UntypedFormGroup = new UntypedFormGroup({});
   noivo1: CasamentoInterface[] = [];
   noivo2: CasamentoInterface[] = [];
   data: CasamentoInterface[] = [];
@@ -55,7 +55,7 @@ export class CasamentoComponent implements OnInit {
     private loggedUser: LoginComponent
     , private router: ActivatedRoute
     , private route: Router
-    , private formBuilder: FormBuilder
+    , private formBuilder: UntypedFormBuilder
     , private service: CasamentoService
     , private InviteeService: ConvidadosService
     , private http:HttpClient

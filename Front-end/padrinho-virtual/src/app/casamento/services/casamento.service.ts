@@ -1,4 +1,4 @@
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
@@ -27,7 +27,7 @@ export class CasamentoService {
     return this.http.get<any>(this.path+id);
   }
 
-  updatePartnerName(casamentoId:string, casamentoForm:FormGroup){
+  updatePartnerName(casamentoId:string, casamentoForm:UntypedFormGroup){
     console.log('Usando método updatePartnerName do service Casamento');
     console.log(casamentoForm.value);
     console.log(this.path+casamentoId);    
@@ -60,11 +60,11 @@ export class CasamentoService {
     console.log('Usando método addInvitee do service Casamento');   
   }
 
-  addCasamento(formNewCasamento: FormGroup){    
+  addCasamento(formNewCasamento: UntypedFormGroup){    
     return this.http.post<any>(this.path, formNewCasamento.value)
   }
 
-  patchUserCasamentoStatus(userId: string, form: FormGroup){
+  patchUserCasamentoStatus(userId: string, form: UntypedFormGroup){
     console.log(form.value)
     return this.http.patch<any>(this.userPath+userId, form.value )
   }
