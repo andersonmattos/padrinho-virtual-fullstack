@@ -27,6 +27,7 @@ import { HomeDialogComponent } from './home/home-dialog/home-dialog.component';
 import { HomeDialogDeleteComponent } from './home/home-dialog-delete/home-dialog-delete.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS,MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule } from '@angular/material-moment-adapter';
 
 
 @NgModule({
@@ -59,9 +60,17 @@ import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } f
     ReactiveFormsModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatNativeDateModule,
+    MatNativeDateModule,    
+    MatMomentDateModule
   ],
-  providers: [LoginComponent,MatDatepickerModule],
+  providers: [
+    LoginComponent,
+    MatDatepickerModule,    
+    /*{provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+    {provide: DateAdapter,
+    useClass: MatMomentDateModule,
+    deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]},
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS}*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

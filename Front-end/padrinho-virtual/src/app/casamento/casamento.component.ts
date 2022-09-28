@@ -1,9 +1,12 @@
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { HttpClient } from '@angular/common/http';
 import { ConvidadosService } from './../convidados/services/convidados.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { DateAdapter,MAT_DATE_FORMATS } from '@angular/material/core';
+import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS,MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule } from '@angular/material-moment-adapter';
 
 
 import { LoginComponent } from './../login/login.component';
@@ -12,13 +15,23 @@ import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { InviteeInterface } from './interface/invitee';
 import { CasamentoInterface } from './interface/casamento';
 import { CasamentoService } from './services/casamento.service';
+import 'moment/locale/pt';
 
 
 
 @Component({
   selector: 'app-casamento',
   templateUrl: './casamento.component.html',
-  styleUrls: ['./casamento.component.css']
+  styleUrls: ['./casamento.component.css'],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'ja-JP'},
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
+    },
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
+  ]
 })
 export class CasamentoComponent implements OnInit {
 
@@ -59,6 +72,8 @@ export class CasamentoComponent implements OnInit {
     , private service: CasamentoService
     , private InviteeService: ConvidadosService
     , private http:HttpClient
+    , private _adapter: DateAdapter<any>
+    , @Inject(MAT_DATE_LOCALE) private _locale: string,
     ) {
       //this.userId = this.router.snapshot.params['userId'];      
       this.casamentoId = this.router.snapshot.params['userId'];      
@@ -97,7 +112,10 @@ export class CasamentoComponent implements OnInit {
     //)    
 
     this.service.getInviteesByCasamentoId(this.casamentoId).subscribe(
-      (invitee => {this.dataSource = invitee}))   
+      (invitee => {this.dataSource = invitee}))
+
+    this._locale='pt';
+    this._adapter.setLocale(this._locale);
 
   }
 
