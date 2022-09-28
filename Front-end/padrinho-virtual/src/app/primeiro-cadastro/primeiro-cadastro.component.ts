@@ -20,6 +20,7 @@ export class PrimeiroCadastroComponent implements OnInit {
   //path: string = "https://localhost:44388/api/Usuarios"
   path: string = "https://padrinhovirtual.azurewebsites.net/api/Usuario"
   //path: string = "http://localhost:5080/api/Usuario"
+  isEmpty: boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,20 +46,22 @@ export class PrimeiroCadastroComponent implements OnInit {
   //Adiciona usuário ao arquivo json
   addUser(){
 
-    console.log(this.formCadastro.controls['email'].value)    
-    if(this.service.verifyExistingUser(this.users,this.formCadastro.controls['email'].value)) {
-      alert('E-mail já cadastrado')
-    } else {
-      this.http.post<any>(this.path,this.formCadastro.value).subscribe(
-        res => {
-          alert("Cadastro criado com sucesso!");
-          this.formCadastro.reset();
-          this.router.navigate(['']);
-        }
-      )
-    }
-    
-    
-  }
+    //console.log(this.formCadastro.controls)
 
+    if(this.formCadastro.valid){
+      console.log(this.formCadastro.controls['email'].value)    
+      if(this.service.verifyExistingUser(this.users,this.formCadastro.controls['email'].value)) {
+        alert('E-mail já cadastrado')
+      } else {
+        this.http.post<any>(this.path,this.formCadastro.value).subscribe(
+          res => {
+            alert("Cadastro criado com sucesso!");
+            this.formCadastro.reset();
+            this.router.navigate(['']);
+          }
+        )
+      }
+    }
+
+  }
 }

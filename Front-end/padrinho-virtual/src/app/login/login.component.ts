@@ -40,8 +40,9 @@ export class LoginComponent implements OnInit {
   }
 
   validateLogin(){    
-    console.log(this.formLogin.value);     
-    this.http.get<any>(this.path)
+    console.log(this.formLogin.value); 
+    if(this.formLogin.valid)
+    {this.http.get<any>(this.path)
     .subscribe(
       res => {        
         const user = res.find((a:any)=>{
@@ -59,7 +60,7 @@ export class LoginComponent implements OnInit {
           this.formLogin.reset();
         }
       }
-    )
+    )}
   }
 
   onClick(){
