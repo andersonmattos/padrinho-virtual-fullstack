@@ -3,7 +3,7 @@ import { ConvidadosService } from './../convidados/services/convidados.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import { MatTabChangeEvent } from '@angular/material/tabs/tab-group';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 
 import { LoginComponent } from './../login/login.component';
