@@ -118,11 +118,11 @@ export class CasamentoComponent implements OnInit {
       (invitee => {
         this.dataSource = invitee; 
         console.log('this.dataSource', this.dataSource);
-        let array = [];
+        /*let array = [];
         array.push(this.dataSource);
         console.log('array: ', array)
         invitee = array;
-        this.dataSource = invitee;
+        this.dataSource = invitee;*/
       }))
     
     /*this.service.getUser(this.casamentoId).subscribe(

@@ -45,16 +45,17 @@ namespace PVWApi.Controllers
 
         // GET: api/Convidadoes/5 - Método criado para localizar usando id do Casamento
         [HttpGet("/api/Convidado/casamentoId/{CasamentoId}")]
-        public async Task<ActionResult<Convidado>> GetConvidadoByCasamentoId(int CasamentoId)
+        public async Task<ActionResult<IEnumerable<Convidado>>> GetConvidadoByCasamentoId(int CasamentoId)
         {
-            var convidado = await _context.Convidado.FirstOrDefaultAsync(x => x.CasamentoId == CasamentoId);
+                        
+            var convidado = await _context.Convidado.Where(x => x.CasamentoId == CasamentoId).ToListAsync();            
 
             if (convidado == null)
             {
                 return NotFound();
             }
 
-            return convidado;
+            return convidado;            
         }
 
 

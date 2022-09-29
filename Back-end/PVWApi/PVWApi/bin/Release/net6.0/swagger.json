@@ -879,7 +879,10 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/Convidado"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Convidado"
+              }
             }
           }
         }
