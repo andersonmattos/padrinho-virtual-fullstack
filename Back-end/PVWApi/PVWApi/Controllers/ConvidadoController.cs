@@ -125,7 +125,34 @@ namespace PVWApi.Controllers
         [HttpPatch("{id}")]
         public async Task<ActionResult> Patch(int id, [FromBody] JsonPatchDocument<Convidado> patchConvidado)
         {
-            if (patchConvidado != null)
+
+            if (patchConvidado == null)
+            {
+                return BadRequest();
+            }
+
+            var convidadoDB = await _context.Convidado.FirstOrDefaultAsync(cvn => cvn.ConvidadoId == id);
+
+            if (convidadoDB == null)
+            {
+                return NotFound();
+            }
+
+            patchConvidado.ApplyTo(convidadoDB, ModelState);
+
+            var isValid = TryValidateModel(convidadoDB);
+
+            if (!isValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+
+
+            /*if (patchConvidado != null)
             {
                 var convidado = await _context.Convidado.FirstOrDefaultAsync(cat => cat.ConvidadoId == id);
                 patchConvidado.ApplyTo(convidado, ModelState);
@@ -139,8 +166,8 @@ namespace PVWApi.Controllers
             else
             {
                 return BadRequest(ModelState);
-            }
-            
+            }*/
+
             /*var convidado = await _context.Convidado.FirstOrDefaultAsync(conv => conv.ConvidadoId == id);
 
             if (convidado == null)
