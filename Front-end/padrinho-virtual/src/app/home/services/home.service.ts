@@ -12,9 +12,9 @@ export class HomeService {
   //private readonly path = 'https://localhost:44388/api/Usuarios/';
   private readonly path = 'https://padrinhovirtual.azurewebsites.net/api/Usuario/';
   private readonly casamentoPath = 'https://padrinhovirtual.azurewebsites.net/api/Casamento/'
-  private readonly convidadoWithCasamentoIdPath = 'https://padrinhovirtual.azurewebsites.net/api/Convidado?idCasamento='
-  private readonly convidadoPath = 'https://padrinhovirtual.azurewebsites.net/api/Convidado?idCasamento='
-
+  private readonly convidadoWithCasamentoIdPath = 'https://padrinhovirtual.azurewebsites.net/api/Convidado/casamentoId/'
+  //private readonly convidadoPath = 'https://padrinhovirtual.azurewebsites.net/api/Convidado?idCasamento='
+  private readonly convidadoPath = 'https://padrinhovirtual.azurewebsites.net/api/Convidado'
   constructor(private http: HttpClient) { }
 
   getUserById(id:string){
@@ -44,7 +44,7 @@ export class HomeService {
   }
 
   getConvidadoByCasamentoId(id:string){
-    return this.http.get<any>(this.convidadoWithCasamentoIdPath+id)
+    return this.http.get<any>(this.convidadoWithCasamentoIdPath+id)            
   }
 
   getConvidado(){

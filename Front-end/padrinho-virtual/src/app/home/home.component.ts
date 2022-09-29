@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
   casamentoId: string = '';
   existingCasamentoId: string = '';
   convidados: ConvidadosInterface[] = [];
+  isError: boolean = false;
   
   constructor(
     private route: ActivatedRoute
@@ -126,11 +127,12 @@ export class HomeComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-      if(result == false){
+      if(result == false){        
         
-        this.service.getConvidadoByCasamentoId(this.existingCasamentoId).subscribe(
-          cnv => {
-            this.convidados = cnv
+        this.service.getConvidado().subscribe(
+          cnv => {            
+            this.convidados = cnv;
+            this.convidados = this.convidados.filter( x => x.casamentoId === Number(this.existingCasamentoId));            
 
             if(!this.convidados.length){
               this.service.deleteCasamento(this.existingCasamentoId).subscribe();
