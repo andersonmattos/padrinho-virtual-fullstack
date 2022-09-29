@@ -115,7 +115,15 @@ export class CasamentoComponent implements OnInit {
     //)    
 
     this.service.getInviteesByCasamentoId(this.casamentoId).subscribe(
-      (invitee => {this.dataSource = invitee}))
+      (invitee => {
+        this.dataSource = invitee; 
+        console.log('this.dataSource', this.dataSource);
+        let array = [];
+        array.push(this.dataSource);
+        console.log('array: ', array)
+        invitee = array;
+        this.dataSource = invitee;
+      }))
     
     /*this.service.getUser(this.casamentoId).subscribe(
       (usr => {this.userDataSource = usr})

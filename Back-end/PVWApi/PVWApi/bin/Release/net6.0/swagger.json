@@ -856,6 +856,35 @@
         }
       }
     },
+    "/api/Convidado/casamentoId/{CasamentoId}": {
+      "get": {
+        "tags": [
+          "Convidado"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "CasamentoId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Convidado"
+            }
+          }
+        }
+      }
+    },
     "/api/Decoracao": {
       "get": {
         "tags": [
@@ -1501,6 +1530,10 @@
           "type": "string"
         },
         "quantidadeConvidado": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "casamentoId": {
           "format": "int32",
           "type": "integer"
         },

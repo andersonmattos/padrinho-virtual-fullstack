@@ -43,6 +43,21 @@ namespace PVWApi.Controllers
             return convidado;
         }
 
+        // GET: api/Convidadoes/5 - Método criado para localizar usando id do Casamento
+        [HttpGet("/api/Convidado/casamentoId/{CasamentoId}")]
+        public async Task<ActionResult<Convidado>> GetConvidadoByCasamentoId(int CasamentoId)
+        {
+            var convidado = await _context.Convidado.FirstOrDefaultAsync(x => x.CasamentoId == CasamentoId);
+
+            if (convidado == null)
+            {
+                return NotFound();
+            }
+
+            return convidado;
+        }
+
+
         // PUT: api/Convidadoes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
