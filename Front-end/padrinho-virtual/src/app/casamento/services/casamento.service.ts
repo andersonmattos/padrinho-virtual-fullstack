@@ -24,22 +24,58 @@ export class CasamentoService {
 
   getPartnerName(id:string){
     console.log('getPartnerName - CasamentoService');
-    console.log('id:', id)
+    console.log('id:', id);
     console.log(this.path+id);
     return this.http.get<any>(this.path+id);
   }
 
-  updatePartnerName(casamentoId:string, casamentoForm:UntypedFormGroup){
+  updatePartner1Name(casamentoId:string, casamentoForm:UntypedFormGroup){
     console.log('Usando método updatePartnerName do service Casamento');
     console.log(casamentoForm.value);
-    console.log(this.path+casamentoId);    
+    console.log(casamentoForm.controls['noivo1'].value);    
+    console.log(this.path+casamentoId);
     
-    console.log('Executando patch');
-    return this.http.patch<any>(this.path+casamentoId,casamentoForm.value).subscribe(
-      res => {
-                       
+    console.log('Executando patch');    
+    
+    return this.http.patch<any>(this.path+casamentoId,[
+      {
+        "value": casamentoForm.controls['noivo1'].value,
+        "path": "/nomeParceiroA",
+        "op": "replace"
       }
-    )
+    ])
+  }
+
+  updatePartner2Name(casamentoId:string, casamentoForm:UntypedFormGroup){
+    console.log('Usando método updatePartnerName do service Casamento');
+    console.log(casamentoForm.value);
+    console.log(casamentoForm.controls['noivo2'].value);    
+    console.log(this.path+casamentoId);
+    
+    console.log('Executando patch');    
+    
+    return this.http.patch<any>(this.path+casamentoId,[
+      {
+        "value": casamentoForm.controls['noivo2'].value,
+        "path": "/nomeParceiroB",
+        "op": "replace"
+      }
+    ])
+  }
+
+  updateDate(casamentoId: string, newDate:string){
+    console.log('Usando método updateDate do service Casamento');    
+    console.log(newDate);    
+    console.log(this.path+casamentoId);
+
+    console.log('Executando patch');
+    return this.http.patch<any>(this.path+casamentoId, [
+      {
+        "value": newDate,
+        "path": "/data",
+        "op": "replace"
+      }
+    ])    
   }
 
   getInviteesByCasamentoId(casamentoId:string) {    

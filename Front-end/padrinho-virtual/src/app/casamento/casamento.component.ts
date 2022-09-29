@@ -17,6 +17,7 @@ import { InviteeInterface } from './interface/invitee';
 import { CasamentoInterface } from './interface/casamento';
 import { CasamentoService } from './services/casamento.service';
 import 'moment/locale/pt';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 
 
@@ -61,10 +62,13 @@ export class CasamentoComponent implements OnInit {
   tabIndex: any = [];
   hadChange1: boolean = false;
   hadChange2: boolean = false;
+  hadChange3: boolean = false;
   dataSource: InviteeInterface[] = [];
   userDataSource: UsersInterface[] = [];
   casamento: string = '';
-  errorMessage: string = ''
+  errorMessage: string = '';
+  datePickerEvents: string[] = [];
+  selectedDate: string = '';
 
 
   constructor (
@@ -95,7 +99,7 @@ export class CasamentoComponent implements OnInit {
     });
 
     this.formCasamento = this.formBuilder.group({
-      data: [null],
+      data: '',
       status: 1  
     });
 
@@ -159,18 +163,31 @@ export class CasamentoComponent implements OnInit {
     console.log('Iniciando saveChanges() on casamento.component.ts')
     console.log(this.formPartner1.value)
     console.log(this.formPartner2.value)
+    console.log(this.formCasamento.value)
     
+    console.log('this.hadChange1',this.hadChange1)    
+    console.log('this.hadChange2',this.hadChange2)    
+    console.log('this.hadChange3',this.hadChange3)
+    
+    this.selectedDate = this.formCasamento.controls['data'].value;
+
     //debugger
 
-    if(this.hadChange1 != false || this.hadChange2 != false){      
+    if(this.hadChange1 != false || this.hadChange2 != false || this.hadChange3 != false){      
       if(this.hadChange1 != false){        
-        this.service.updatePartnerName(this.casamentoId,this.formPartner1)        
+        this.service.updatePartner1Name(this.casamentoId,this.formPartner1).subscribe();       
       }
 
       if(this.hadChange2 != false){
-        this.service.updatePartnerName(this.casamentoId,this.formPartner2)        
+        this.service.updatePartner2Name(this.casamentoId,this.formPartner2).subscribe();       
+      }
+
+      if(this.hadChange3 != false){
+        this.service.updateDate(this.casamentoId,this.selectedDate).subscribe()
       }
       alert("Atualizado com sucesso!"); 
+    }else{
+      alert("Não foram detectadas alterações"); 
     }
 
   }
@@ -211,6 +228,17 @@ export class CasamentoComponent implements OnInit {
 
   onChangePartner2() {
     this.hadChange2 = true;
+  }
+
+  onChangeDate(){        
+    this.hadChange3 = true;    
+  }
+
+  addEvent(event: MatDatepickerInputEvent<Date>){
+    this.datePickerEvents.push(`${event.value}`)
+    this.hadChange3 = true; 
+    console.log(this.datePickerEvents);
+    
   }
 
   onEditConvidado(id: number, nome: string, quantidade: number) {

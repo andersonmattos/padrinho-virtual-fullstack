@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PVWApi.Models;
@@ -103,5 +104,36 @@ namespace PVWApi.Controllers
         {
             return _context.Casamento.Any(e => e.CasamentoId == id);
         }
-    }
+
+        [HttpPatch("{id}")]
+        public async Task<ActionResult> Patch(int id, [FromBody] JsonPatchDocument<Casamento> patchCasamento)
+        {
+
+            if (patchCasamento == null)
+            {
+                return BadRequest();
+            }
+
+            var casamentoDB = await _context.Casamento.FirstOrDefaultAsync(csm => csm.CasamentoId == id);
+
+            if (casamentoDB == null)
+            {
+                return NotFound();
+            }
+
+            patchCasamento.ApplyTo(casamentoDB, ModelState);
+
+            var isValid = TryValidateModel(casamentoDB);
+
+            if (!isValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        }
 }

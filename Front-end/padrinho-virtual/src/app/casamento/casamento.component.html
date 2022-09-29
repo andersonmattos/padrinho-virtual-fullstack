@@ -41,8 +41,7 @@
                   <p>
                     <mat-form-field class="field-width" appearance="fill">
                         <mat-label>Data do Casamento</mat-label>
-                        <input formControlName = "data" matInput [matDatepicker]="picker" value = "{{data}}" (change)="onChangePartner2()" >
-                        <mat-hint>DD/MM/YYYY</mat-hint>
+                        <input formControlName = "data" matInput [matDatepicker]="picker" value ="{{data}}" (dateChange)="addEvent($event)" >                        
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
