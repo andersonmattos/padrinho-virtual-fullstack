@@ -51,6 +51,25 @@ namespace PVWApi.Controllers
             return usuario;
         }
 
+        // GET: api/Usuario/5 - alterações para usar CasamentoId
+        [HttpGet("/api/Usuario/casamentoId/{CasamentoId}")]
+        public async Task<ActionResult<Usuario>> GetUsuarioByCasamentoId(int CasamentoId)
+        {
+                        
+            if (_context.Usuario == null)
+            {
+                return NotFound();
+            }
+            var usuario = await _context.Usuario.FirstOrDefaultAsync(x => x.CasamentoId == CasamentoId);
+
+            if (usuario == null)
+            {
+                return NotFound();
+            }
+
+            return usuario;
+        }
+
         // PUT: api/Usuario/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]        

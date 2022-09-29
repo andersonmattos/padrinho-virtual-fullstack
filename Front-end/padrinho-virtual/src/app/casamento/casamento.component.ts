@@ -1,3 +1,4 @@
+import { UsersInterface } from './../login/interface/users';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { HttpClient } from '@angular/common/http';
 import { ConvidadosService } from './../convidados/services/convidados.service';
@@ -61,8 +62,10 @@ export class CasamentoComponent implements OnInit {
   hadChange1: boolean = false;
   hadChange2: boolean = false;
   dataSource: InviteeInterface[] = [];
+  userDataSource: UsersInterface[] = [];
   casamento: string = '';
   errorMessage: string = ''
+
 
   constructor (
     private loggedUser: LoginComponent
@@ -113,6 +116,10 @@ export class CasamentoComponent implements OnInit {
 
     this.service.getInviteesByCasamentoId(this.casamentoId).subscribe(
       (invitee => {this.dataSource = invitee}))
+    
+    /*this.service.getUser(this.casamentoId).subscribe(
+      (usr => {this.userDataSource = usr})
+    )*/
 
     this._locale='pt';
     this._adapter.setLocale(this._locale);
@@ -129,7 +136,7 @@ export class CasamentoComponent implements OnInit {
     //debugger
     this.InviteeService.deleteConvidadoById(id.toString()).subscribe();
     alert('Deletado com sucesso');    
-    this.dataSource = this.dataSource.filter((u:any) => u.convidadoId !== id);
+    this.dataSource = this.dataSource.filter((u:any) => u.convidadoId !== id);    
   }
 
   //Método para identificar quando a aba Convidados está selecionada
@@ -169,8 +176,25 @@ export class CasamentoComponent implements OnInit {
     ) */
     //this.service.getCasamentoByUserId(this.casamentoId)      
     console.log(this.rootPath+this.userId)
+    console.log(this.userDataSource)
     //this.route.navigate([this.rootPath,this.userId])
-    this.route.navigate([this.rootPath,1])
+    /*this.service.getUser(this.casamentoId).subscribe(
+      usr => {
+        this.userId = usr.LoginId;
+        console.log('usr.LoginId: ', usr.LoginId);
+        this.userDataSource = usr;        
+        console.log('this.userDataSource: ', this.userDataSource);       
+      }
+    )*/
+    
+    //this.http.get<any>('https://padrinhovirtual.azurewebsites.net/api/Usuario/casamentoId/'+this.casamentoId).subscribe(
+    this.service.getUser(this.casamentoId).subscribe(
+      usr => {
+        this.userId = usr.loginId;
+        console.log('usr.LoginId: ', this.userId);
+        this.route.navigate([this.rootPath+this.userId])
+      }
+    )    
   }
 
   onChangePartner1() {

@@ -14,8 +14,9 @@ export class CasamentoService {
   private readonly inviteePath ='https://padrinhovirtual.azurewebsites.net/api/Convidado?idCasamento=';
   
   //private readonly userPath ='http://localhost:3000/user/';
-  private readonly userPath = 'https://localhost:44388/api/Usuarios/';
-  //private readonly userPath = 'https://padrinhovirtual.azurewebsites.net/api/Usuarios';
+  //private readonly userPath = 'https://localhost:44388/api/Usuarios/';
+  private readonly userPath = 'https://padrinhovirtual.azurewebsites.net/api/Usuario/';
+  private readonly userPathWithCasamentoId = 'https://padrinhovirtual.azurewebsites.net/api/Usuario/casamentoId/';
 
 
   constructor(private http: HttpClient) { }
@@ -46,7 +47,7 @@ export class CasamentoService {
   }
 
   getCasamentoId(userId:string){
-    console.log('Método getCasamentoId: ')
+    console.log('Método getCasamentoId')
     //return this.http.get<any>(this.userPath+userId)
     return this.http.get<any>(this.path+userId)
   }
@@ -54,6 +55,10 @@ export class CasamentoService {
   getUserId(userId:string){
     console.log('id',userId)   
     return this.http.get<any>(this.userPath+userId)
+  }
+
+  getUser(id:string){
+    return this.http.get<any>(this.userPathWithCasamentoId+id)
   }
 
   addInviteeByCasamento(idCasamento:string){
@@ -64,9 +69,20 @@ export class CasamentoService {
     return this.http.post<any>(this.path, formNewCasamento.value)
   }
 
-  patchUserCasamentoStatus(userId: string, form: UntypedFormGroup){
-    console.log(form.value)
-    return this.http.patch<any>(this.userPath+userId, form.value )
+  patchUserCasamentoStatus(userId: string, idCasamento: string){
+    
+    return this.http.patch<any>(this.userPath+userId, [
+      {
+        value: idCasamento,
+        path: "/casamentoId",
+        op: "replace"
+      },
+      {
+        value: 1,
+        path: "/temCasamento",
+        op: "replace"
+      },
+    ])
   }
   
   getCasamentoByUserId(casamentoId:string){
@@ -81,7 +97,9 @@ export class CasamentoService {
 
   getUserIdByCasamentoId(casamentoId:string){
     //this.http.get<any>('http://localhost:3000/casamento/'+casamentoId)    
-    return this.http.get<any>(this.path+casamentoId)
+    console.log('getUserIdByCasamentoId')
+    console.log('casamentoId: ', casamentoId)
+    return this.http.get<any>(this.userPath)
   }
 
 }

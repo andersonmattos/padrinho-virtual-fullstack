@@ -18,7 +18,7 @@ namespace PVWApi.Models
         public Boolean Status { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime Data { get; set; }
+        public DateTime? Data { get; set; }
 
         /*[Column(TypeName = "int")]
         public int UsuarioId { get; set; }

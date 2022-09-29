@@ -76,14 +76,26 @@ export class HomeComponent implements OnInit {
 
   onClickNew() {
     this.formNewCasamento = this.formBuilder.group({
-      idUser: this.userId,
+      //idUser: this.userId,
       noivo1: [null],
-      noivo2: [null]
-    })    
+      noivo2: [null],
+      data: [null],
+      status: 1
+    })
+
+    /*this.CasamentoService.getCasamentoId('8').subscribe(
+      res => {
+        this.casamentoId = res.id;
+        console.log('this.casamentoId: res.id', this.casamentoId);
+
+        this.casamentoId = res.casamentoId;
+        console.log('this.casamentoId: res.casamentoId', this.casamentoId)
+      }
+    )*/
     
     this.CasamentoService.addCasamento(this.formNewCasamento).subscribe(      
       res => {        
-        this.casamentoId = res.id
+        this.casamentoId = res.casamentoId
         this.updateUser(this.casamentoId)    
         this.router.navigate([this.rootPath+this.casamentoId])
       }
@@ -100,12 +112,12 @@ export class HomeComponent implements OnInit {
   updateUser(idCas:string){
     console.log('Entrou na rotina updateUser')
     
-    this.frm = this.formBuilder.group({
+    /*this.frm = this.formBuilder.group({
       temCasamento: 1,
       idCasamento: idCas
-    })
+    })*/
     
-    this.CasamentoService.patchUserCasamentoStatus(this.userId, this.frm).subscribe()
+    this.CasamentoService.patchUserCasamentoStatus(this.userId, idCas).subscribe()
    
   }
 
