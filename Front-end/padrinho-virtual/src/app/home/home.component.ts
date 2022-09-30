@@ -163,6 +163,7 @@ export class HomeComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
       if(result == false){
         this.service.patchUserById(this.userId).subscribe();
+        this.service.patchCasamentoStatus(this.existingCasamentoId).subscribe();
         alert('Casamento concluído com sucesso');
         window.location.reload();
       }      

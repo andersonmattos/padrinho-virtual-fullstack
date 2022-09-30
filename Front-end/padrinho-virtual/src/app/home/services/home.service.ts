@@ -31,6 +31,17 @@ export class HomeService {
     ])
   }
 
+  patchCasamentoStatus(id:string){
+    console.log('Usando método patchCasamentoStatus do service Home');
+    return this.http.patch<any>(this.casamentoPath+id,[
+      {
+        value:0,
+        path: "/status",
+        op: "replace"
+      }
+    ])
+  }
+
   deleteCasamento(id:string){
     console.log('Usando método deleteCasamento do service Home');
     this.deleteConvidado(id)
