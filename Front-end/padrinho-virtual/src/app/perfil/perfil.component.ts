@@ -1,3 +1,5 @@
+import { PerfilDialogDeleteComponent } from './perfil-dialog-delete/perfil-dialog-delete.component';
+import { MatDialog } from '@angular/material/dialog';
 import { UsersInterface } from './../login/interface/users';
 import { PerfilService } from './services/perfil.service';
 import { Router, RouterModule, ActivatedRoute } from '@angular/router';
@@ -27,7 +29,8 @@ export class PerfilComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private frmBuilder: FormBuilder,
-    private perfilService: PerfilService
+    private perfilService: PerfilService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -84,11 +87,18 @@ export class PerfilComponent implements OnInit {
     window.location.reload();
   }
 
-  onClickDelete(){
+  onClickDelete(enterAnimationDuration: string, exitAnimationDuration: string){
     console.log('Entrando na rotina onClickDelete');
-    this.perfilService.deleteUser(this.userId).subscribe();
-    alert('Perfil excluído com sucesso!')
-    this.router.navigate(['']);
+    const dialogRef = this.dialog.open(PerfilDialogDeleteComponent)
+
+    dialogRef.afterClosed().subscribe(result =>{
+      console.log(`Dialog result: ${result}`);
+      if(result == false){
+        this.perfilService.deleteUser(this.userId).subscribe();
+        alert('Perfil excluído com sucesso!')
+        this.router.navigate(['']);
+      }
+    })    
   }
 
   hadChanges(){
