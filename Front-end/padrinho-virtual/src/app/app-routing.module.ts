@@ -1,4 +1,5 @@
-import { NgModule, Component } from '@angular/core';
+import { PerfilComponent } from './perfil/perfil.component';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   //{ path:'convidado?idCasamento=:idCasamento&:id', component: ConvidadosComponent},
   { path:'convidado', component: ConvidadosComponent},
   //{ path:'convidado/:inviteeId', component: ConvidadosComponent},
+  { path:'perfil/:userId', component: PerfilComponent }
   
 ];
 

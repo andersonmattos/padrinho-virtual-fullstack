@@ -169,8 +169,8 @@ export class HomeComponent implements OnInit {
     });    
   }
 
-  verifyExistingInvitees(){
-
+  onClickPerfil(){
+    this.router.navigate(['/perfil/',this.userId])
   }
 
 }

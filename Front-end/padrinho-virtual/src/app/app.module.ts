@@ -28,6 +28,7 @@ import { HomeDialogDeleteComponent } from './home/home-dialog-delete/home-dialog
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { DateAdapter, MatNativeDateModule, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS,MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateModule } from '@angular/material-moment-adapter';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { MomentDateAdapter, MAT_MOMENT_DATE_FORMATS,MAT_MOMENT_DATE_ADAPTER_OPTI
     CasamentoComponent,
     ConvidadosComponent,
     HomeDialogComponent,
-    HomeDialogDeleteComponent
+    HomeDialogDeleteComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,40 @@
+<div>
+    <mat-toolbar>
+        <span>Padrinho Virtual</span>
+        <span class="button-to-far-left"></span>              
+        <button mat-button (click)="onClickHome()">Voltar</button>        
+        <a mat-button href=" ">Sair</a>
+    </mat-toolbar>
+</div>
+
+<div class="div-top-margin">
+    <form class="alignement-form" [formGroup]="frmUser" (ngSubmit)="onClickUpdate()" >
+        <div  fxLayout="column" fxLayoutAlign="center center">
+            <p>
+                <mat-form-field class="input-field-width" appearance="fill">
+                    <mat-label>E-mail</mat-label>
+                    <input matInput formControlName="email" value="{{email}}">                
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field class="input-field-width" appearance="fill">
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="nome" value="{{nome}}">                
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field class="input-field-width" appearance="fill">
+                    <mat-label>Senha</mat-label>
+                    <input type="text" matInput placeholder="Digite sua nova senha" formControlName="senha">                     
+                </mat-form-field>
+            </p>  
+        </div>
+        <div fxLayout="row" fxLayoutAlign = "center center" fxLayoutGap = "10px" class="button-row">            
+            <button type="submit" mat-raised-button>Atualizar dados</button>            
+        </div>        
+    </form>
+    <div fxLayout="row" fxLayoutGap="25px" class="buttons-form">
+        <button mat-raised-button (click)="onClickHome()">Cancelar</button>
+        <button mat-raised-button (click)="onClickDelete()">Excluir perfil</button>
+    </div>
+</div>

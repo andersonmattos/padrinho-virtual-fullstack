@@ -1,0 +1,49 @@
+.button-size{
+    max-width: 300px;
+    width: 100%;
+}
+
+.mat-raised-button{
+    width: 300%;    
+}
+
+.padding{
+    padding-top: 5%;
+}
+
+.button-to-far-left {
+    flex: 1 1 auto;
+    justify-content: space-between;
+}
+
+.div-top-margin {
+    margin-top: 3%;
+}
+
+.input-field-width {
+    width: 500px;
+    margin-right: 20%;  
+}
+
+.button-row {
+    display: table-cell;
+    width: 490px;
+    justify-content: center;    
+}
+
+.button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+.alignement-form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 35%;
+}
+
+.buttons-form{
+    min-width: 150px;
+    max-width: 482px;
+    margin-left: 35%;
+}
